@@ -4,16 +4,19 @@ const Navbar = () => {
     return (
         <div className="navbar" /* {styles.navbar} */>
             <nav>
-                <div className="logo">
-                    <h1> JS-School: Dailies </h1>
+                <div className="logo-home">
+                    <h1> Home Button </h1>
                 </div>
-                <Link href="/"><a> Home </a></Link>
-                <Link href="/linkone"><a> Link One </a></Link>
-                <Link href="/linktwo"><a> Link Two </a></Link>
-                <Link href="/linkthree"><a> Link Three </a></Link>
-                <Link href="/login"><a> Login </a></Link>
-                <Link href="/logout"><a> Logout </a></Link>
-                <Link href="/signup"><a> Signup </a></Link>
+                <div className="nav-pagelinks">
+                    <Link href="/about"><a> About </a></Link>
+                    <Link href="/linkone"><a> Page One </a></Link>
+                    <Link href="/linktwo"><a> Page Two </a></Link>
+                </div>
+                <div className="nav-accountlinks">
+                    <Link href="/login"><a> Login </a></Link>
+                    <Link href="/logout"><a> Logout </a></Link>
+                    <Link href="/signup"><a> Signup </a></Link>
+                </div>
             </nav> 
         </div>
     )
