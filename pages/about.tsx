@@ -6,7 +6,7 @@ const About: NextPage = () => {
   return (
     <div /*className={styles.container}*/>
       <main /*className={styles.main}*/>
-        <h1>Page One</h1>
+        <h1>About</h1>
       </main>
 
     </div>
