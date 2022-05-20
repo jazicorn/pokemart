@@ -10,7 +10,7 @@ const Home: NextPage = () => {
         <title>JS-Dailies</title>
         <meta name="description" content="Practice your javascript skills daily" />
       </Head>
-
+      
       <main /*className={styles.main}*/>
         <h1>Hello World</h1>
       </main>

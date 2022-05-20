@@ -5,12 +5,12 @@ const Navbar = () => {
         <div className="navbar" /* {styles.navbar} */>
             <nav>
                 <div className="logo-home">
-                    <h1> Home Button </h1>
+                    <Link href="/index"><h1> Home Button </h1></Link>
                 </div>
                 <div className="nav-pagelinks">
                     <Link href="/about"><a> About </a></Link>
-                    <Link href="/linkone"><a> Page One </a></Link>
-                    <Link href="/linktwo"><a> Page Two </a></Link>
+                    <Link href="/pageone"><a> Page One </a></Link>
+                    <Link href="/pagetwo"><a> Page Two </a></Link>
                 </div>
                 <div className="nav-accountlinks">
                     <Link href="/login"><a> Login </a></Link>
