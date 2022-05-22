@@ -5,7 +5,7 @@ const Navbar = () => {
         <div className="navbar" /* {styles.navbar} */>
             <nav>
                 <div className="logo-home">
-                    <Link href="/index"><h1> Home Button </h1></Link>
+                    <Link href="/"><a> Home Button </a></Link>
                 </div>
                 <div className="nav-pagelinks">
                     <Link href="/about"><a> About </a></Link>
