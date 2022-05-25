@@ -6501,6 +6501,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"nodemailer@npm:^6.7.5":
+  version: 6.7.5
+  resolution: "nodemailer@npm:6.7.5"
+  checksum: d361a107b9eb264856852e32d3deb9bda1f69fdef6087ba20aaf58f98aacf4cd16c3633583ddbc1f23df25ad87c86bcca98511aaadfb447fe35a1e0eca6a7796
+  languageName: node
+  linkType: hard
+
 "nopt@npm:^5.0.0":
   version: 5.0.0
   resolution: "nopt@npm:5.0.0"
@@ -7973,6 +7980,7 @@ __metadata:
     lint-staged: ^12.4.2
     next: ^12.1.6
     next-auth: ^4.3.4
+    nodemailer: ^6.7.5
     prettier: ^2.6.2
     prisma: ^3.14.0
     react: ^18.1.0
