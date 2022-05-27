@@ -36,8 +36,50 @@ export default NextAuth({
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID!,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
-    }),  
+    }),
+    // AppleProvider({
+    //   clientId: process.env.APPLE_ID,
+    //   clientSecret: {
+    //     appleId: process.env.APPLE_ID,
+    //     teamId: process.env.APPLE_TEAM_ID,
+    //     privateKey: process.env.APPLE_PRIVATE_KEY,
+    //     keyId: process.env.APPLE_KEY_ID,
+    //   },
+    // }),
+    // Auth0Provider({
+    //  clientId: process.env.AUTH0_ID,
+    //  clientSecret: process.env.AUTH0_SECRET,
+    //  // @ts-ignore
+    //  domain: process.env.AUTH0_DOMAIN,
+    // }),
+    // FacebookProvider({
+    //  clientId: process.env.FACEBOOK_ID,
+    //  clientSecret: process.env.FACEBOOK_SECRET,
+    // }),
+    // GithubProvider({
+    //  clientId: process.env.GITHUB_ID,
+    //  clientSecret: process.env.GITHUB_SECRET,
+    //  // https://docs.github.com/en/developers/apps/building-oauth-apps/scopes-for-oauth-apps
+    //  // @ts-ignore
+    //  scope: "read:user",
+    // }),
+    // TwitterProvider({
+    //  clientId: process.env.TWITTER_ID,
+    //  clientSecret: process.env.TWITTER_SECRET,
+    // }),
   ],
+  // Database optional. MySQL, Maria DB, Postgres and MongoDB are supported.
+  // https://next-auth.js.org/configuration/databases
+  //
+  // Notes:
+  // * You must install an appropriate node_module for your database
+  // * The Email provider requires a database (OAuth providers do not)
+  // database: process.env.DATABASE_URL,
+
+  // The secret should be set to a reasonably long random string.
+  // It is used to sign cookies and to sign and encrypt JSON Web Tokens, unless
+  // a separate secret is defined explicitly for encrypting the JWT.
+  // secret: process.env.SECRET,
   session: {
     // Use JSON Web Tokens for session instead of database sessions.
     // This option can be used with or without a database for users/accounts.
@@ -70,6 +112,12 @@ export default NextAuth({
     //  
     // },
   },
+
+  // You can define custom pages to override the built-in ones. These will be regular Next.js pages
+  // so ensure that they are placed outside of the '/api' folder, e.g. signIn: '/auth/mycustom-signin'
+  // The routes shown here are the default URLs that will be used when a custom
+  // pages is not specified for that route.
+  // https://next-auth.js.org/configuration/pages
   pages: {
     // signIn: '/auth/signin',  // Displays signin buttons
     // signOut: '/auth/signout', // Displays form with sign out button
@@ -87,6 +135,10 @@ export default NextAuth({
     // async session(session, user) { return session },
     // async jwt(token, user, account, profile, isNewUser) { return token }
   },
+
+  // Events are useful for logging
+  // https://next-auth.js.org/configuration/events
+  events: {},
 
   // You can set the theme to 'light', 'dark' or use 'auto' to default to the
   // whatever prefers-color-scheme is set to in the browser. Default is 'auto'
