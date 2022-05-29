@@ -1,5 +1,6 @@
 import Footer from "./site/Footer";
 import Navbar from "./site/Navbar";
+import Portal from "./user/Portal"
 
 type Props = {
     children?: React.ReactNode;
@@ -8,9 +9,14 @@ type Props = {
 const Layout = ({ children }: Props) => {
     return (
         <div className="">
-            <Navbar />
+            <div className="navbar">
+                <Portal />
+                <Navbar /> 
+            </div>
+            <>
                 { children }
-            <Footer />
+            </>       
+           <Footer />
         </div>
     );
 }
