@@ -29,10 +29,19 @@ const prisma = new PrismaClient()
 export default NextAuth({
   adapter: PrismaAdapter(prisma),
   providers: [
+    /*
     EmailProvider({
-      server: process.env.EMAIL_SERVER,
-      from: process.env.EMAIL_FROM,
-    }),
+      // uses Sendgrid
+      server: {
+        host: process.env.SMTP_HOST,
+        port: Number(process.env.SMTP_PORT),
+        auth: {
+          user: process.env.SMTO_USER,
+          pass: process.env.SMTP_PASSWORD
+        },
+      },
+      from: process.env.SMTP_FROM,
+    }), */
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID!,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
