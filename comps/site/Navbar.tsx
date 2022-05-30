@@ -13,9 +13,9 @@ const Navbar = () => {
                     <Link href="/"><a> Home Button </a></Link>
                 </div>
                 <div className="nav-links-page">
-                    <Link href="/about"><a> About </a></Link>
-                    <Link href="/pageone"><a> Page One </a></Link>
-                    <Link href="/pagetwo"><a> Page Two </a></Link>
+                    <Link href="/home/about" as="/about"><a> About </a></Link>
+                    <Link href="/home/pageone" as="/pageone"><a> Page One </a></Link>
+                    <Link href="/home/pagetwo" as="/pagetwo"><a> Page Two </a></Link>
                 </div>          
             </nav> 
         </div>
