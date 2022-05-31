@@ -14,27 +14,65 @@ datasource db {
 
 model User {
   id            String    @id @default(cuid())
-  name          String   @unique @db.VarChar(255)
-  email         String   @unique
+  name          String    @unique @db.VarChar(35)
+  password      String    @db.VarChar(55)
+  email         String    @unique @db.VarChar(55)
+  emailConfirm  Boolean   @default(false)
   emailVerified DateTime?
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
-  image         String?
   accounts      Account[]
   sessions      Session[]
-  todolist      Todo[] 
+  todolist      Todo[]
+  profile       Profile? 
+}
+
+model Profile {
+  id            Int       @id @default(autoincrement())
+  name_first    String    @map("firstname")
+  name_last     String    @map("lastname")
+  image         String?
+  bio           String    @db.VarChar(555)
+  handles       String[]  @db.VarChar(555)
+  userId        String
+  complete      Boolean   @default(false)
+  role          Role      @default(USER)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+}
+
+enum Role {
+  USER
+  ADMIN
 }
 
 model Todo {
-  id            Int  @id @default(autoincrement())
-  title         String  @db.VarChar(155)
-  item          String[]  @db.VarChar(255)
-  completed     Boolean
+  id            Int       @id @default(autoincrement())
+  title         String    @db.VarChar(55)
+  item          Item[]
+  userId        String
+  completed     Boolean   @default(false)
+  listType      ListType  @default(TODOLIST)
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
-  userId        String
-  user          User  @relation(fields: [userId], references: [id], onDelete: Cascade)
-  listType      ListType @default(TODOLIST)
+
+  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+}
+
+model Item {
+  id            Int       @id @default(autoincrement())
+  action        String    @db.VarChar(255)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  completed     Boolean   @default(false)
+  todoId        Int
+
+  todo          Todo      @relation(fields: [todoId], references: [id], onDelete: Cascade)
+  
 }
 
 // create different type of values
