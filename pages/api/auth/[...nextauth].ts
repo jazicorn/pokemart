@@ -1,9 +1,12 @@
 import NextAuth from "next-auth"
 import GoogleProvider from "next-auth/providers/google"
 import EmailProvider from "next-auth/providers/email"
+import CredentialsProvider from "next-auth/providers/credentials"
 
 import { PrismaAdapter } from "@next-auth/prisma-adapter"
 import { PrismaClient } from "@prisma/client"
+
+import { compare } from "bcryptjs"
 
 const prisma = new PrismaClient()
 
@@ -26,11 +29,72 @@ const prisma = new PrismaClient()
 // another
 // https://strapi.io/blog/user-authentication-in-next-js-with-strapi
 
+
 export default NextAuth({
   adapter: PrismaAdapter(prisma),
   providers: [
-    /*
-    EmailProvider({
+    CredentialsProvider({
+      // The name to display on the sign in form (e.g. "Sign in with...")
+      name: "Credentials",
+      // The credentials is used to generate a suitable form on the sign in page.
+      // You can specify whatever fields you are expecting to be submitted.
+      // e.g. domain, username, password, 2FA token, etc.
+      // You can pass any HTML attribute to the <input> tag through the object.
+      credentials: {
+        email: { label: "Email", type: "text", placeholder: "jsmith@example.com" },
+        password: {  label: "Password", type: "password" }
+      },
+      async authorize(credentials) {
+      // You need to provide your own logic here that takes the credentials
+      // submitted and returns either a object representing a user or value
+      // that is false/null if the credentials are invalid.
+      // e.g. return { id: 1, name: 'J Smith', email: 'jsmith@example.com' }
+      // You can also use the `req` object to obtain additional parameters
+      // (i.e., the request IP address)
+        const url = `${process.env.NEXT_PUBLIC_API_URL}/auth/login`;
+        const res  = await fetch(url, {
+          method: 'Post',
+          body: JSON.stringify(credentials),
+          headers: { 'Content-Type': 'application/json'},
+        });
+
+        // get user from database
+        const user = await prisma.user.findUnique({
+          where: {
+            email: credentials?.email,
+          },
+        });
+      
+        // check if undefined or null value
+        const defined = credentials === undefined || user?.password === null;
+
+        if (defined) {
+          throw new Error('Please input email and password');
+        }
+
+        // compare credential input to database input
+        const checkUser = res.ok && user;
+
+        // Check hashed password with DB password
+        const checkPassword = await compare(credentials.password, user!.password);
+
+        // throw error if username not in database or password correct
+        if (!checkUser || !checkPassword) {
+          throw new Error('Incorrect Email or Password')
+        }
+    
+        // if username and password matches return user
+        if (checkUser && checkPassword) {
+          // Any object returned will be saved in `user` property of the JWT
+          return { email: user.email}
+        } else {
+          // If you return null then an error will be displayed advising the user to check their details.
+          return null
+          // You can also Reject this callback with an Error thus the user will be sent to the error page with the error message as a query parameter
+        }
+      }
+    }),
+    /* EmailProvider({
       // uses Sendgrid
       server: {
         host: process.env.SMTP_HOST,
@@ -76,6 +140,7 @@ export default NextAuth({
     //  clientId: process.env.TWITTER_ID,
     //  clientSecret: process.env.TWITTER_SECRET,
     // }),
+    
   ],
   // Database optional. MySQL, Maria DB, Postgres and MongoDB are supported.
   // https://next-auth.js.org/configuration/databases
