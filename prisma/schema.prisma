@@ -19,6 +19,7 @@ model User {
   email         String    @unique @db.VarChar(55)
   emailConfirm  Boolean   @default(false)
   emailVerified DateTime?
+  status        Status?
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
   accounts      Account[]
@@ -27,8 +28,43 @@ model User {
   profile       Profile? 
 }
 
-model Profile {
+model Status {
+  id            String    @id @default(cuid())
+  firstAttempt  DateTime  @default(now())
+  lastAttempt   DateTime  @updatedAt
+  attempts      Attempts[]
+  userId        String
+  
+  user          User      @relation(fields: [userId], references: [id])
+}
+
+// Attempts model only created for user if they enter incorrect password
+model Attempts {
+  id            String    @id @default(cuid())
+  firstAttempt  DateTime  @default(now())
+  lastAttempt   DateTime  @updatedAt
+  total         Int       @default(0)
+  attempt       Attempt[]  
+  blocked       Boolean   @default(false)
+  blockedAt     DateTime
+  statusId      String
+
+  status        Status    @relation(fields: [statusId], references: [id])
+
+}
+
+model Attempt {
   id            Int       @id @default(autoincrement())
+  pass          Boolean
+  attemptAt     DateTime  @default(now())
+  attemptsId    String
+
+  attempts      Attempts  @relation(fields: [attemptsId], references: [id])
+
+}
+
+model Profile {
+  
   name_first    String    @map("firstname")
   name_last     String    @map("lastname")
   image         String?
