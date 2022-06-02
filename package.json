@@ -33,9 +33,6 @@
   },
   "dependencies": {
     "@apollo/client": "^3.6.5",
-    "@chakra-ui/react": "^2.1.2",
-    "@emotion/react": "^11",
-    "@emotion/styled": "^11",
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
     "@fortawesome/free-brands-svg-icons": "^6.1.1",
     "@fortawesome/free-regular-svg-icons": "^6.1.1",
@@ -51,7 +48,6 @@
     "bcryptjs": "^2.4.3",
     "dotenv": "^16.0.1",
     "dotenv-cli": "^5.1.0",
-    "framer-motion": "^6",
     "graphql": "^16.5.0",
     "ioredis": "^5.0.5",
     "next": "^12.1.6",
