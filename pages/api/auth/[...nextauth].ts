@@ -51,7 +51,7 @@ export default NextAuth({
       // e.g. return { id: 1, name: 'J Smith', email: 'jsmith@example.com' }
       // You can also use the `req` object to obtain additional parameters
       // (i.e., the request IP address)
-        const url = `${process.env.NEXT_PUBLIC_API_URL}/auth/login`;
+        const url = `${process.env.NEXT_PUBLIC_API_URL}/auth/signin`;
         const res  = await fetch(url, {
           method: 'Post',
           body: JSON.stringify(credentials),
@@ -107,6 +107,7 @@ export default NextAuth({
       from: process.env.SMTP_FROM,
     }), */
     GoogleProvider({
+      name: "Google",
       clientId: process.env.GOOGLE_CLIENT_ID!,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
     }),
@@ -193,7 +194,7 @@ export default NextAuth({
   // pages is not specified for that route.
   // https://next-auth.js.org/configuration/pages
   pages: {
-    // signIn: '/auth/signin',  // Displays signin buttons
+      signIn: '/auth/signin',  // Displays signin buttons
     // signOut: '/auth/signout', // Displays form with sign out button
     // error: '/auth/error', // Error code passed in query string as ?error=
     // verifyRequest: '/auth/verify-request', // Used for check email page
