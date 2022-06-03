@@ -9,7 +9,9 @@
     "start": "next start",
     "lint": "next lint",
     "migrate:postgres:test": "dotenv -e .env.test -- npx prisma migrate dev --name postgres-init",
-    "test": "jest --watch"
+    "test": "jest --watch",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.4",
@@ -21,6 +23,7 @@
     "@typescript-eslint/eslint-plugin": "^5.26.0",
     "@typescript-eslint/parser": "^5.26.0",
     "autoprefixer": "^10.4.7",
+    "cypress": "^10.0.2",
     "eslint": "^8.16.0",
     "eslint-config-next": "^12.1.6",
     "eslint-config-prettier": "^8.5.0",
