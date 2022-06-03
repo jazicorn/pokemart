@@ -74,7 +74,7 @@ export default NextAuth({
           throw new Error('Please enter email');
         }
         if(!user) {
-          throw new Error('Incorrect username or password');
+          throw new Error('Email not found');
         }
         if(res.ok && user) {
           return signInUser({password, user})
@@ -213,7 +213,7 @@ export default NextAuth({
 // @ts-ignore
 const signInUser = async ({password, user}) => {
   if(!user.password) {
-    throw new Error("Please enter password")
+    throw new Error("Incorrect password")
   }
   const isMatch = await compare(password, user);
   if(!isMatch) {
@@ -222,3 +222,9 @@ const signInUser = async ({password, user}) => {
   
   return user
 }
+
+/* TODO: write attempts module 
+const attempts = async ({}) => {
+
+}
+*/
