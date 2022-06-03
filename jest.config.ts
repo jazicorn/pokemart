@@ -4,9 +4,11 @@
  */
 // great article on setting up jest with nextjs
 // https://www.kyrelldixon.com/blog/setup-jest-and-react-testing-library-with-nextjs
-const nextJest = require("next/jest");
+/**In order to get file to run I had to change "isolatedModules" from true to false, */
 
-module.exports = async () => {
+import type {Config} from '@jest/types';
+
+export default async (): Promise<Config.InitialOptions> => {
   return {
   // All imported modules in your tests should be mocked automatically
   // automock: false,
@@ -131,15 +133,15 @@ module.exports = async () => {
   // rootDir: undefined,
 
   // A list of paths to directories that Jest should use to search for files in
-  roots: [
-    "<rootDir>/pages"
-  ],
+  // roots: [
+  //   "<rootDir>/pages"
+  // ],
 
   // Allows you to use a custom runner instead of Jest's default test runner
   // runner: "jest-runner",
 
   // The paths to modules that run some code to configure or set up the testing environment before each test
-  setupFiles: ["<rootDir>/tests/dotenv.config.js"],
+  setupFiles: ["<rootDir>/lib/dotenv.config.js"],
 
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
@@ -178,7 +180,7 @@ module.exports = async () => {
   // testRunner: "jest-circus/runner",
 
   // A map from regular expressions to paths to transformers
-  // transform: undefined,
+  transform: {"^.+\\.tsx?$": "ts-jest"},
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   // transformIgnorePatterns: [

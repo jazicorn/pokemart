@@ -14,7 +14,8 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "types": ["node", "jest", "@testing-library/jest-dom"],
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "./types"],
   "exclude": ["node_modules"],
