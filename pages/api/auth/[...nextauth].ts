@@ -41,56 +41,43 @@ export default NextAuth({
       // e.g. domain, username, password, 2FA token, etc.
       // You can pass any HTML attribute to the <input> tag through the object.
       credentials: {
-        email: { label: "Email", type: "text", placeholder: "jsmith@example.com" },
-        password: {  label: "Password", type: "password" }
+        email:    {   label: "Email",     type: "text",     placeholder: "jsmith@example.com" },
+        password: {   label: "Password",  type: "password" }
       },
-      async authorize(credentials) {
+      async authorize(credentials, req) {
       // You need to provide your own logic here that takes the credentials
       // submitted and returns either a object representing a user or value
       // that is false/null if the credentials are invalid.
       // e.g. return { id: 1, name: 'J Smith', email: 'jsmith@example.com' }
       // You can also use the `req` object to obtain additional parameters
       // (i.e., the request IP address)
-        const url = `${process.env.NEXT_PUBLIC_API_URL}/auth/signin`;
-        const res  = await fetch(url, {
+        const url = process.env.NEXTAUTH_URL;
+        const res  = await fetch(url + '/auth/signin', {
           method: 'Post',
           body: JSON.stringify(credentials),
           headers: { 'Content-Type': 'application/json'},
         });
 
+        const email = credentials?.email;
+        const password = credentials?.password;
+        // '?' called conditional ternary operator
+        // if password response is 'undefined' or is response is empty string
+        const isNull = credentials?.password ? undefined : password?.length === 0;
         // get user from database
         const user = await prisma.user.findUnique({
           where: {
-            email: credentials?.email,
+            email: email,
           },
         });
-      
-        // check if undefined or null value
-        const defined = credentials === undefined || user?.password === null;
 
-        if (defined) {
-          throw new Error('Please input email and password');
+        if(isNull) {
+          throw new Error('Please enter email');
         }
-
-        // compare credential input to database input
-        const checkUser = res.ok && user;
-
-        // Check hashed password with DB password
-        const checkPassword = await compare(credentials.password, user!.password);
-
-        // throw error if username not in database or password correct
-        if (!checkUser || !checkPassword) {
-          throw new Error('Incorrect Email or Password')
+        if(!user) {
+          throw new Error('Incorrect username or password');
         }
-    
-        // if username and password matches return user
-        if (checkUser && checkPassword) {
-          // Any object returned will be saved in `user` property of the JWT
-          return { email: user.email}
-        } else {
-          // If you return null then an error will be displayed advising the user to check their details.
-          return null
-          // You can also Reject this callback with an Error thus the user will be sent to the error page with the error message as a query parameter
+        if(res.ok && user) {
+          return signInUser({password, user})
         }
       }
     }),
@@ -149,7 +136,7 @@ export default NextAuth({
   // Notes:
   // * You must install an appropriate node_module for your database
   // * The Email provider requires a database (OAuth providers do not)
-  // database: process.env.DATABASE_URL,
+  //database: process.env.DATABASE_URL,
 
   // The secret should be set to a reasonably long random string.
   // It is used to sign cookies and to sign and encrypt JSON Web Tokens, unless
@@ -223,3 +210,15 @@ export default NextAuth({
 
 })
 
+// @ts-ignore
+const signInUser = async ({password, user}) => {
+  if(!user.password) {
+    throw new Error("Please enter password")
+  }
+  const isMatch = await compare(password, user);
+  if(!isMatch) {
+    throw new Error("Incorrect email or password")
+  }
+  
+  return user
+}
