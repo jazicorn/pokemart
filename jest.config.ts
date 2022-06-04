@@ -6,7 +6,9 @@
 // https://www.kyrelldixon.com/blog/setup-jest-and-react-testing-library-with-nextjs
 /**In order to get file to run I had to change "isolatedModules" from true to false, */
 
-const nextJest = require('next/jest')
+// const nextJest = require('next/jest')
+
+import nextJest from 'next/jest'
 
 const createJestConfig = nextJest({
   dir: './',
