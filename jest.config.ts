@@ -20,11 +20,7 @@ const customJestConfig = {
 
 module.exports = createJestConfig(customJestConfig)
 
-
-// import type {Config} from '@jest/types';
-
-// export default async (): Promise<Config.InitialOptions> => {
-//   return {
+// customizable inputs
 //   // All imported modules in your tests should be mocked automatically
 //   // automock: false,
 
@@ -232,8 +228,8 @@ module.exports = createJestConfig(customJestConfig)
 
 //   // Whether to use watchman for file crawling
 //   // watchman: true,
-//   }
-// };
+
+
 
 
 
