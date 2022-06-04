@@ -1,6 +1,5 @@
-import Footer from "./site/Footer";
-import Navbar from "./site/Navbar";
-import Header from "./user/Header"
+import React from 'react'
+import Header from "./site/Header";
 
 type Props = {
     children?: React.ReactNode;
@@ -9,14 +8,13 @@ type Props = {
 const Layout = ({ children }: Props) => {
     return (
         <div className="">
-            <div className="navbar">
+            <div className="header">
                 <Header />
-                <Navbar /> 
+
             </div>
             <>
                 { children }
             </>       
-           <Footer />
         </div>
     );
 }
