@@ -1,4 +1,4 @@
-## template - next.js
+## template - next.js - full - user
 > template for next.js projects
 
 ### Requirements
