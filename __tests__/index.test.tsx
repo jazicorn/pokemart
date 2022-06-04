@@ -1,10 +1,10 @@
-import Home from '../pages/index'
-import "@testing-library/jest-dom";
 import { render, screen } from '@testing-library/react'
+import Home from '../pages/index'
+import '@testing-library/jest-dom'
 
 describe('Home', () => {
-    it('should render', () => {
-        render(<Home />)
-        expect(screen.getByTestId("Hello World")).toBeInTheDocument();
-    })
+  it('renders a heading', () => {
+    render(<Home />)
+
+  })
 })
