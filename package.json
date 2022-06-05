@@ -8,7 +8,8 @@
     "build:staging": "next build",
     "start": "next start",
     "lint": "next lint",
-    "migrate:postgres:test": "dotenv -e .env.test.local -- npx prisma migrate dev --name postgres-init",
+    "migrate:postgres:dev": "dotenv -e .env.development.local -- npx prisma migrate dev --name postgres-dev",
+    "migrate:postgres:test": "dotenv -e .env.test.local -- npx prisma migrate dev --name postgres-test",
     "test": "jest"
   },
   "devDependencies": {
