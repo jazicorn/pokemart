@@ -22,10 +22,16 @@ model User {
   status        Status?
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
+  role          Role      @default(USER)
   accounts      Account[]
   sessions      Session[]
   todolist      Todo[]
   profile       Profile? 
+}
+
+enum Role {
+  USER
+  ADMIN
 }
 
 model Status {
@@ -72,7 +78,6 @@ model Profile {
   handles       String[]  @db.VarChar(555)
   userId        String
   complete      Boolean   @default(false)
-  role          Role      @default(USER)
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
 
@@ -80,10 +85,6 @@ model Profile {
 
 }
 
-enum Role {
-  USER
-  ADMIN
-}
 
 model Todo {
   id            Int       @id @default(autoincrement())
