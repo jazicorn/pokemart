@@ -1,3 +1,4 @@
+import type { NextApiRequest, NextApiResponse } from 'next'
 import { getProviders, signIn, getSession, getCsrfToken } from "next-auth/react"
 import { useState } from 'react';
 
@@ -57,7 +58,7 @@ export default function SignIn( {providers, csrfToken }) {
     )
 }
 
-SignIn.getInitialProps = async (context: {req: any, res: any}) => {
+SignIn.getInitialProps = async (context: {req: NextApiRequest, res: NextApiResponse}) => {
     const {req, res} = context;
     const session = await getSession({req});
     
