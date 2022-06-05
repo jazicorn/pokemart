@@ -17,7 +17,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         res.status(404).send({ message: `Unauthorized` })
     }
 
-
     switch(req.method) {
         case 'GET':
             if(user) {
@@ -54,7 +53,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                         email: body.email,
                     },
                 })
-                res.status(200).json({ message: `${req.body.email} is updated`})
+                res.status(200).json({ message: `${body.email} is updated`})
             } else {
                 res.status(400).send({ message: "Data Not Found"})
             }
