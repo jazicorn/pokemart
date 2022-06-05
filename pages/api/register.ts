@@ -6,6 +6,7 @@ export default async function handler (req:NextApiRequest, res: NextApiResponse)
     if(req.method != 'POST') {
         res.status(405).send({ message: `The HTTP ${req.method} method is not supported at this route.` })
     }
+    
     const body = req.body
     const getUser = await prisma.user.findUnique({
         where: {
