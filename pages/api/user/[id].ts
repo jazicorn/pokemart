@@ -1,5 +1,4 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { GetServerSideProps } from 'next'
 import { getSession } from 'next-auth/react';
 
 // DELETE api/user/[id]
