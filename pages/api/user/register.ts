@@ -1,11 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import bcrypt from 'bcryptjs'
 
+// POST /api/user/register
 export default async function handler (req:NextApiRequest, res: NextApiResponse) {
     if(req.method != 'POST') {
-        throw new Error(
-            `The HTTP ${req.method} method is not supported at this route.`
-        );
+        res.status(405).send({ message: `The HTTP ${req.method} method is not supported at this route.` })
     }
     const body = req.body
     const getUser = await prisma.user.findUnique({
@@ -14,7 +13,7 @@ export default async function handler (req:NextApiRequest, res: NextApiResponse)
         },
         select: {
             email: true,
-            name:true
+            name: true
         }
     });
 
@@ -31,6 +30,7 @@ export default async function handler (req:NextApiRequest, res: NextApiResponse)
     // create user if email not found in database
     await prisma.user.create({
         data: {
+            user: body.name,
             email: body.email        
         }
     })
