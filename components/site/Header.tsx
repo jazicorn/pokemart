@@ -11,17 +11,17 @@ const Header = () => {
                     <Link href="/"><a> Home </a></Link>
                 </div>
                 <div className="nav-links-page">
-                    <Link href="/home/about" as="/about"><a> About </a></Link>
-                    <Link href="/home/pageone" as="/pageone"><a> Page One </a></Link>
-                    <Link href="/home/pagetwo" as="/pagetwo"><a> Page Two </a></Link>
+                    <Link href="/home/about"><a> About </a></Link>
+                    <Link href="/home/pageone"><a> Page One </a></Link>
+                    <Link href="/home/pagetwo"><a> Page Two </a></Link>
 
                 </div> 
                 <div className="portal">
                     {!session && (
-                        <Link href="/auth/signin" as="/signin"><a> SignIn </a></Link>
+                        <Link href="/auth/signin"><a> SignIn </a></Link>
                     )}
                     {session && (
-                        <Link href="/auth/signout" as="/signout"><a> SignOut </a></Link>
+                        <Link href="/auth/signout"><a> SignOut </a></Link>
                     )}
                 </div>         
             </nav>
