@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { getProviders, signIn, getSession, getCsrfToken } from "next-auth/react"
 import { useState } from 'react';
+import Link from 'next/link';
 
 // used flatmap to filter credentials from provider stack
 // https://www.samanthaming.com/tidbits/80-flatmap/
@@ -27,21 +28,27 @@ export default function SignIn( {providers, csrfToken }) {
         <div className='main'>
             <h1>Welcome</h1>
 
-            <form method="post" action="/api/auth/callback/credentials">
-                <input name="csrfToken" type='hidden' defaultValue={csrfToken}/>
-                <h4>Email</h4>
-                <label>
-                    <input type='email' id='email' name='email' value={email} onChange={e => setEmail(e.target.value)}/>
-                </label>   
-    
-                <h4>Password</h4>
-                <label> 
-                    <input type='text' id='password' name='password' value={password} onChange={e => setPassword(e.target.value)}/>
-                </label>
-                <p style={{color:'red'}}>{message}</p>
-                <button onClick={(e) => signInUser(e)}>Sign In</button>                                                
-            </form>
-  
+            <div className='newuser'>
+                <h3>New User?</h3>
+                <></>
+                <Link href='/auth/register'><a>Register</a></Link>
+            </div>
+            <div className='credentials'>
+                <form method="post" action="/api/auth/callback/credentials">
+                    <input name="csrfToken" type='hidden' defaultValue={csrfToken}/>
+                    <h4>Email</h4>
+                    <label>
+                        <input type='email' id='email' name='email' value={email} onChange={e => setEmail(e.target.value)}/>
+                    </label>   
+        
+                    <h4>Password</h4>
+                    <label> 
+                        <input type='text' id='password' name='password' value={password} onChange={e => setPassword(e.target.value)}/>
+                    </label>
+                    <p style={{color:'red'}}>{message}</p>
+                    <button onClick={(e) => signInUser(e)}>Sign In</button>                                                
+                </form>
+            </div>
             {Object.values(providers).map((provider:any) => {
                 const ignore = 'Credentials' || 'Email';
                 return (
@@ -53,8 +60,7 @@ export default function SignIn( {providers, csrfToken }) {
                     </div>                                      
                 )                    
             })}
-
-        </div>
+        </div>             
     )
 }
 
@@ -69,10 +75,11 @@ SignIn.getInitialProps = async (context: {req: NextApiRequest, res: NextApiRespo
         res.end()
         return;
     }
+
     return {
         session: undefined,
         csrfToken: await getCsrfToken(context),
-        providers: await getProviders(),
+        providers: await getProviders(), 
     }    
 }
 
