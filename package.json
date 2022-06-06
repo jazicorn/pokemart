@@ -4,12 +4,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "dotenv -e lib/.env.development.local next dev",
+    "dev": "dotenv -e lib/env/.env.development.local next dev",
     "build:staging": "next build",
     "start": "next start",
     "lint": "next lint",
-    "migrate:postgres:dev": "dotenv -e .env.development.local -- npx prisma migrate dev --name postgres-dev",
-    "migrate:postgres:test": "dotenv -e .env.test.local -- npx prisma migrate dev --name postgres-test",
+    "migrate:postgres:dev": "dotenv -e lib/env/.env.development.local -- npx prisma migrate dev --name postgres-dev",
+    "migrate:postgres:test": "dotenv -e lib/env/.env.test.local -- npx prisma migrate dev --name postgres-test",
     "test": "jest"
   },
   "devDependencies": {
@@ -47,6 +47,7 @@
     "@fortawesome/free-regular-svg-icons": "^6.1.1",
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "@fortawesome/react-fontawesome": "latest",
+    "@joi/date": "^2.1.0",
     "@logtail/node": "^0.1.10",
     "@logtail/winston": "^0.1.10",
     "@next-auth/prisma-adapter": "^1.0.3",
@@ -60,6 +61,7 @@
     "graphql": "^16.5.0",
     "ioredis": "^5.0.5",
     "jest-mock-extended": "^2.0.6",
+    "joi": "^17.6.0",
     "next": "^12.1.6",
     "next-auth": "^4.3.4",
     "next-themes": "^0.2.0",
