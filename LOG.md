@@ -16,7 +16,7 @@ I quickly realized that it would take some time to completely set up the project
   - [markdown-emoji's](https://gist.github.com/rxaviers/7360908)
   - :-1: &nbsp; Incomplete
   - :pray: &nbsp; Work-In-Progress 
-  - :+1: &nbsp; Complete
+  - :tada: &nbsp; Complete
 
 - **Category**
   - Project Management (PM)
@@ -36,7 +36,7 @@ I quickly realized that it would take some time to completely set up the project
 
 |  #ID   |   Date   |        Status        |     Category      |   Feature   |
 | ------ | -------- | ---------------------| ----------------- | ----------- |
-| Format | YY/MM/DD | &nbsp; &nbsp; :+1: |  &nbsp; &nbsp; PM | &nbsp; Git  |
+| Format | YY/MM/DD | &nbsp;&nbsp;:tada: |  &nbsp; &nbsp; PM | &nbsp; Git  |
 | ...    | ...      | ...                  | ...............   | ...         | 
 
 ### Notes
