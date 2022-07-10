@@ -15,6 +15,6 @@ This project uses the [pokiapi](https://pokeapi.co/).
 
 ...
 
-## TODO
+## [TODO](TODO.md)
+> features/steps to project completion
 
-...
