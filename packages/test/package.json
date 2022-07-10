@@ -1,0 +1,29 @@
+{
+  "name": "@pokemart/test",
+  "version": "0.1.0",
+  "license": "UNLICENSED",
+  "private": true,
+  "main": "index.ts",
+  "scripts": {
+    "test:jest": "jest",
+    "test:jest:watch": "jest --watch"
+  },
+  "dependencies": {
+    "@pokemart/client": "0.1.0",
+    "@pokemart/server": "0.1.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.3.0",
+    "@types/jest": "^28.1.4",
+    "@types/node": "^16.7.13",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "jest": "^28.1.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "ts-jest": "^28.0.5",
+    "typescript": "^4.4.2"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "name": "pokemart",
+  "version": "0.1.0",
+  "repository": "https://github.com/jazicorn/pokemarket",
+  "packageManager": "yarn@3.2.1",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "engines": {
+    "node": "16.x"
+  },
+  "scripts": {
+    "build": "ts-node ./config/build.ts",
+    "client:prod": "",
+    "server:prod": "yarn workspace @pokemart/server start:prod",
+    "client:dev": "yarn workspace @pokemart/client start",
+    "server:dev": "yarn workspace @pokemart/server start:dev",
+    "client:test": "yarn workspace @pokemart/test client",
+    "server:test": "yarn workspace @pokemart/test server",
+    "docker": "docker build . -t pokemart",
+    "pokemart": "docker run -p 3001:80 pokemart"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.3",
+    "@typescript-eslint/eslint-plugin": "^5.30.5",
+    "@typescript-eslint/parser": "^5.30.5",
+    "@yarnpkg/pnpify": "^4.0.0-rc.11",
+    "esbuild": "^0.14.48",
+    "eslint": "^8.19.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.2.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-react": "^7.30.1",
+    "identity-obj-proxy": "^3.0.0",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1",
+    "ts-node": "^10.8.2",
+    "typescript": "^4.7.4"
+  }
+}

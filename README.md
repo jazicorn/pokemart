@@ -1,9 +1,20 @@
-# Pokemarket
+# Pokemart
 
 > users can buy, sell, and trade pokemon
 
 ## About
 
-Website for users to buy, sell and trade pokemon with each other.
+Website for users to buy, sell and trade pokemon with each other.</br>
 This project uses the [pokiapi](https://pokeapi.co/).
 
+## Installation
+
+...
+
+## Deployment
+
+...
+
+## TODO
+
+...

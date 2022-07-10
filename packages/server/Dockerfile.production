@@ -1,0 +1,32 @@
+# TODO: Customize Docker file to my project; Currently not set up properly
+
+# pull official base image
+FROM node:16.15.0
+
+# set working directory
+# WORKDIR /src
+
+# Install dependencies early so that if some files in our app
+# change, Docker won't have to download the dependencies again,
+# and instead will start from the next step ("COPY . .").
+# build environment
+
+COPY ./package.json .
+COPY ./yarn.lock .
+
+# CI/CD | Circleci
+# https://circleci.com/docs/getting-started
+# RUN yarn ci
+
+# Copy all files of our app (except files specified in the .gitignore)
+COPY . .
+
+# Build app
+RUN yarn build
+
+# production environment
+FROM nginx:stable-alpine
+COPY --from=build /app/build /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
+

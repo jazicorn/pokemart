@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+
+    "target": "esnext",
+    "module": "commonjs",
+    "lib": ["ESNext", "DOM"],
+
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+
+    "baseUrl": "./",
+    "paths": {
+      "@pokemart/*": ["packages/*"]
+    },
+
+    "strict": true,
+
+    "jsx": "react-jsx",
+    "experimentalDecorators": true,
+    "resolveJsonModule": true
+    },
+    "references": [
+      {
+        "path": "packages/client"
+      },
+      {
+        "path": "packages/server"
+      },
+      {
+        "path": "packages/test"
+      }
+    ],
+
+    "exclude": ["node_modules", "**/node_modules/*", "dist", "*.d.ts"]
+
+}

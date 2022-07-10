@@ -1,0 +1,78 @@
+# TODO
+
+- [ ] **Client | React**
+  - [ ] Homepage
+  - [ ] User | Dashboard
+  - [ ] User | Settings
+  - [ ] User | Profile
+  - [ ] User | Pokemon | Pokedex
+  - [ ] User | Pokemon | Buy
+  - [ ] User | Pokemon | Sell
+  - [ ] User | Pokemon | Trade
+  - [ ] User | Friends
+  - [ ] User | Transaction List
+  - [ ] API | Fontawesome
+  - [ ] Fonts | Google Fonts
+  - [ ] CSS | TailwindCSS
+    - [ ] Configure Bundling
+- [ ] **Server | Express**
+  - [ ] API | Pokemon | Connect to server
+  - [ ] Routing
+    - [ ] Routes | Company
+      - [ ] About
+      - [ ] Career
+      - [ ] Blog
+      - [ ] Tutorials
+      - [ ] Contact Us 
+    - [ ] Routes | User
+      - [ ] Settings
+      - [ ] Dashboard
+      - [ ] Profile
+        - [ ] Profile Pic
+        - [ ] About Stats
+        - [ ] Pokedex
+          - [ ] Pokemon | Total
+          - [ ] Pokemon | Individual Stats 
+        - [ ] Pokemon | Wanted
+        - [ ] Pokemon | Favorite
+  - [ ] Auth
+    - [ ] AuthO
+      - [ ] Configure 
+  - [ ] Validation
+  - [ ] Security
+  - [ ] Database | Connect to server
+- [ ] **Database** | *Postgres* | User Authentication
+  - [ ] Local
+    - [ ] setup local instance
+    - [ ] connect to dev server
+    - [ ] docker-compose | config
+  - [ ] Production
+    - [ ] Docker | Addon
+    - [ ] Heroku | Addon
+- [ ] **Database** | *MongoDB* | Public Profile & Pokedex
+  - [ ] Create Remote Account 
+  - [ ] Local
+    - [ ] setup local instance
+    - [ ] connect to dev server
+    - [ ] docker-compose | config
+  - [ ] Production
+    - [ ] Docker | Add remote db
+- [ ] **Webpack** or **[Parcel?](https://parceljs.org/getting-started/webapp/)**
+  - [ ] Configure
+- [ ] **Babel**
+  - [ ] Configure
+- [ ] **./config/build.ts**
+  - [ ] Properly Configure
+- [ ] **tsconfig.json**
+  - [ ] Properly Configure 
+- [ ] **Dockerize Project**
+    - [ ] Config | Build packages building package containers
+    - [ ] ./packages/client | Dockerfile | config properly
+    - [ ] ./packages/client | Dockerfile.production | config properly
+    - [ ] ./packages/server | Dockerfile | config properly
+    - [ ] ./packages/server | Dockerfile.production | config properly
+    - [ ] ./package.json | @packages | Build step command
+    - [ ] ./package.json | docker | Build step command
+    - [ ] docker-compose | database | configure
+    - [ ] Decide on dockerhero vs heroku.yml for deployment
+- [ ] ... 

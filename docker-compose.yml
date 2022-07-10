@@ -1,0 +1,28 @@
+# TODO:What is version for?
+version: '3'
+
+# TODO: Check ports; Check build context
+# TODO: Maybe setup docker-compose for dev and heroku.yml for production?
+services:
+  client:
+    container_name: client
+    build:
+      context: ./packages/client
+      dockerfile: Dockerfile
+      args:
+        - BUILD_CONTEXT=dev
+    ports:
+      - '3001'
+  server:
+    container_name: server
+    build:
+      context: ./packages/server
+      dockerfile: Dockerfile
+      args:
+        - BUILD_CONTEXT=dev
+    ports:
+      - '8080:80'
+  db:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
