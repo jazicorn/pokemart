@@ -13,11 +13,14 @@
   },
   "scripts": {
     "build": "ts-node ./config/build.ts",
-    "client:prod": "",
-    "server:prod": "yarn workspace @pokemart/server start:prod",
+    "client:clean": "yarn workspace @pokemart/client clean",
+    "client:build": "yarn workspace @pokemart/client build",
+    "client:prod": "yarn client:clean && yarn client:build",
     "client:dev": "yarn workspace @pokemart/client start",
-    "server:dev": "yarn workspace @pokemart/server start:dev",
+    "client:dev:full": "FORCE_COLOR=true yarn client:dev | cat",
     "client:test": "yarn workspace @pokemart/test client",
+    "server:prod": "yarn workspace @pokemart/server start:prod ",
+    "server:dev": "yarn workspace @pokemart/server start:dev",
     "server:test": "yarn workspace @pokemart/test server",
     "docker": "docker build . -t pokemart",
     "pokemart": "docker run -p 3001:80 pokemart"
