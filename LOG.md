@@ -10,13 +10,18 @@ I quickly realized that it would take some time to completely set up the project
 > Example of tracker table inputs
 
 - **ID**
-  - 1
+  - Ex. 001
 
 - **Status** | [emoji's](https://gist.github.com/rxaviers/7360908)
-  - :-1: &nbsp; **Incomplete** *(Not Started)*
-  - :wave: &nbsp; **Staged** *(Setup Complete: Packages;Imports;Documentation;etc.)*
-  - :pray: &nbsp; **Work-In-Progress** *(Started Coding)* 
-  - :tada: &nbsp; **Complete** *(Documented & Finished)*
+  - :-1: &nbsp; **Incomplete** 
+    - *(Not Started)*
+  - :wave: &nbsp; **Staged** 
+    - *(Setup Complete:)* 
+    - *(Ex. Packages;Imports;Documentation;etc.)*
+  - :pray: &nbsp; **Work-In-Progress** 
+    - *(Started Coding)* 
+  - :tada: &nbsp; **Complete** 
+    - *(Documented & Finished)*
 
 - **Category**
   - Project Management (PM)
@@ -34,14 +39,38 @@ I quickly realized that it would take some time to completely set up the project
 ### Table
 > daily log of what I worked on
 
-|  #ID   |   Date   |        Status        |     Category      |   Feature   |
-| ------ | -------- | ---------------------| ----------------- | ----------- |
-| Format | YY/MM/DD | &nbsp;&nbsp;:tada: |  &nbsp; &nbsp; PM | &nbsp; Git  |
-| ...    | ...      | ...                  | ...............   | ...         | 
+|  #ID   |   Date   |        Status        |     Category      |  Feature   |
+| ------ | -------- | -------------------- | ----------------- | ---------- |
+| Format | YY/MM/DD | &nbsp;&nbsp;:tada    |  &nbsp; Ex. (PM)  |  Ex. (Git) |
+| 001    | 22/07/10 | &nbsp;&nbsp;:tada: |  &nbsp; Client    | React; Eslint |
+| 002    | 22/07/10 | &nbsp;&nbsp;:tada: |  &nbsp; Server    | package:dotenv |
+| 003    | 22/07/10 | &nbsp;&nbsp;:pray: |  &nbsp; PM        | Docsify    |
+| ...    | ........ | &nbsp;&nbsp;         |  &nbsp; .......   | ...        |  
+| ...    | ........ | &nbsp;&nbsp;         |  &nbsp; .......   | ...        | 
+
 
 ### Notes
 > Additional notes for daily tracker by ID
 
-- **#ID**
-    - *Date*
-    - Notes
+- **#001**
+  - **Details**
+    - Fix React Eslint Error
+  - **Solution**
+    - moved eslint react extends from client to root eslint config
+  - **Notes**
+    - [Stackoverflow Q&A](https://stackoverflow.com/questions/63912721/failed-to-load-config-react-to-extend-from)
+    - [Github Issue](https://github.com/facebook/create-react-app/issues/10463)
+    - [Eslint Config Docs](https://eslint.org/docs/latest/user-guide/configuring/)
+- **#002**
+  - **Details**
+    - Add dotenv package to server package
+- **#003**
+  - **Details**
+    - Created Additional Documentation
+- **#id**
+  - **Details**
+    - ...
+  - **Solution**
+    - ...
+  - **Notes**
+    - ...
