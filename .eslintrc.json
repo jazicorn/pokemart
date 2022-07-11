@@ -8,7 +8,8 @@
     "standard",
     "prettier",
     "plugin:@typescript-eslint/recommended",
-    "prettier/@typescript-eslint"
+    "react-app",
+    "react-app/jest"
   ],
   "plugins": ["@typescript-eslint"],
   "env": {
