@@ -12,11 +12,11 @@ I quickly realized that it would take some time to completely set up the project
 - **ID**
   - 1
 
-- **Status**
-  - [markdown-emoji's](https://gist.github.com/rxaviers/7360908)
-  - :-1: &nbsp; Incomplete
-  - :pray: &nbsp; Work-In-Progress 
-  - :tada: &nbsp; Complete
+- **Status** | [emoji's](https://gist.github.com/rxaviers/7360908)
+  - :-1: &nbsp; **Incomplete** *(Not Started)*
+  - :wave: &nbsp; **Staged** *(Setup Complete: Packages;Imports;Documentation;etc.)*
+  - :pray: &nbsp; **Work-In-Progress** *(Started Coding)* 
+  - :tada: &nbsp; **Complete** *(Documented & Finished)*
 
 - **Category**
   - Project Management (PM)
