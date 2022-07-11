@@ -37,12 +37,12 @@ This project uses the [pokiapi](https://pokeapi.co/).
 ### Installation
 
 Want to setup the project yourself? 
-Head over to the [docs](docs/README.md) folder, or the [website](https://jazicorn.github.io/pokemart/).
+Head over to the [docs](docs/README.md) folder or the [website](https://jazicorn.github.io/pokemart/).
 
 ### TODO
 > Features/steps to project completion
 
-[Full List]((TODO.md))
+[Full List](TODO.md)
 
 **Top Five**
 
