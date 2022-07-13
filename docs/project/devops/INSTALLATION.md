@@ -1,5 +1,5 @@
 # Installation
-> Instructions for installing the project
+> Instructions for setup and installing the project
 
 ## About
 

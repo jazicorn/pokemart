@@ -1,4 +1,7 @@
-# TODO
+# Roadmap
+> Features/Steps to project completion
+
+TODO: Reorganize page for future feature/package releases
 
 - [ ] **Client | React**
   - [ ] Homepage
