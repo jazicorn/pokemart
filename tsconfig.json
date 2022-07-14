@@ -12,7 +12,6 @@
     "paths": {
       "@pokemart/*": ["packages/*"]
     },
-
     "strict": true,
 
     "jsx": "react-jsx",
@@ -31,7 +30,7 @@
         "path": "packages/test"
       }
     ],
-
+    "include": [".eslintrc.json", "./src/**/*", "./__helpers__/*", "packages/server/src/**/*" ],
     "exclude": ["node_modules", "**/node_modules/*", "dist", "*.d.ts"]
 
 }

@@ -1,5 +1,5 @@
 node_modules/
 public/
-.eslintrc.js
+.eslintrc.json
 tailwind.config.js
 postcss.config.js
