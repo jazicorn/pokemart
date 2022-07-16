@@ -59,6 +59,27 @@ I quickly realized that it would take some time to completely set up the project
 
 #### Logs: Current
 
+- [x] Common
+  - [x] Eslint: Config: Extend
+- [ ] Server
+  - [ ] Feature: Page: Home
+  - [ ] Feature: Authentication
+    - [ ] Database: MongoDB
+    - [ ] ORM: Prisma
+    - [ ] Validation: Joi
+    - [ ] Authentication Service: Auth0
+  - [ ] Route: User: Profile
+  - [ ] Route: User: Settings
+  - [ ] Route: User: Pokedex
+  - [ ] Route: Public: Pokedex
+- [ ] Client
+  - [ ] Configure TailwindCSS
+  - [ ] Page: Home
+  - [ ] Page: Public: Pokedex
+    - [ ] Connect Public Route to Public Page
+  - [ ] Page: Private (User): Pokedex
+    - [ ] Connect Private Route to Private Page
+
 1. **Common**
    1. Feature: Eslint | Config | Extend
       1. Action: Extend @pokemart/client & @pokemart/server tsconfig.json files
