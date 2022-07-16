@@ -4,6 +4,7 @@
       "./packages/server/src",
       "tests",
       ".eslintrc.json",
+      "index.d.ts"
   ],
   "exclude": ["node_modules", "dist", "coverage"]
 }

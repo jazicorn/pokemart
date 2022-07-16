@@ -13,7 +13,7 @@
       "@pokemart/*": ["packages/*"]
     },
     "strict": true,
-
+    "allowJs": true,
     "jsx": "react-jsx",
     "experimentalDecorators": true,
     "resolveJsonModule": true,
