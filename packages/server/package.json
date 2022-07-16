@@ -1,11 +1,12 @@
 {
   "name": "@pokemart/server",
+  "type": "module",
   "version": "0.1.0",
   "description": "buy, sell, and trade pokemon",
   "license": "UNLICENSED",
   "private": true,
   "packageManager": "yarn@3.2.1",
-  "main": "index.ts",
+  "main": "./src/index.ts",
   "lib": [
     "dom",
     "es2016"
@@ -15,13 +16,17 @@
     "start:dev": "nodemon ./src/index.ts"
   },
   "dependencies": {
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.20.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.4.4",
     "pokenode-ts": "^1.15.0"
   },
   "devDependencies": {
+    "@types/body-parser": "^1.19.2",
     "@types/cors": "^2.8.12",
     "@types/express": "^4.17.13",
     "@types/node": "^18.0.3",
