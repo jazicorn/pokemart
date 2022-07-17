@@ -2,7 +2,7 @@ import express, { Express } from 'express';
 import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
 
-import home from './routes/site/routes.site.home';
+import site from './routes/site/routes.site.index';
 import auth from './routes/auth/routes.auth.index';
 import user from './routes/auth/user/routes.user.index';
 
@@ -14,8 +14,8 @@ const app: Express = express();
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
-// home route
-app.use('/', home);
+// site routes
+app.use('/', site);
 // all auth routes
 app.use('/auth', auth);
 // all user routes
