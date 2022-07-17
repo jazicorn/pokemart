@@ -1,10 +1,10 @@
-import express, { Request, Response } from 'express';
+import express, { Request, Response, Router } from 'express';
 
-const router = express.Router();
+const router: Router = express.Router();
 
 router.get('/', (req: Request, res: Response) => {
   res.send('home page');
 });
 
-
 export default router;
+
