@@ -2,7 +2,7 @@ import express, { Express } from 'express';
 import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
 
-import home from './routes/site/home';
+import home from './routes/site/routes.site.home';
 import auth from './routes/auth/routes.auth.index';
 import user from './routes/auth/user/routes.user.index';
 
