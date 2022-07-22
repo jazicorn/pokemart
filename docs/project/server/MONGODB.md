@@ -27,6 +27,10 @@ brew update
 brew install mongodb-community@5.0
 ```
 
+**Connect Your Database**
+
+- [Prisma/MongoDB](https://www.prisma.io/docs/getting-started/setup-prisma/add-to-existing-project/mongodb/connect-your-database-typescript-mongodb)
+
 #### Deployment
 **Start mongodb server:**
 ```bash
@@ -49,18 +53,29 @@ mongosh
 - [Mongodb Shell Docs](https://docs.mongodb.com/mongodb-shell/)
   - [Shell Commands](https://www.mongodb.com/docs/mongodb-shell/run-commands/)
   - [Local Deployment](https://www.mongodb.com/docs/mongodb-shell/connect/)
-- Local Database URL: MONGODB
 
 ### Production
 > production database setup
 
 #### Configuration
 
-...
+- [MongoDB Atlas](https://www.mongodb.com/atlas/database)
 
 #### Remote Deployment
 
-...
+**Node.js Example:**
+```javascript
+const { MongoClient, ServerApiVersion } = require('mongodb');
+const uri = "mongodb+srv://<username>:<password>@<cluster-name>.ki2hdjb.mongodb.net/<db-name>?retryWrites=true&w=majority";
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+
+client.connect(err => {
+  const collection = client.db("test").collection("devices");
+  // perform actions on the collection object
+  client.close();
+});
+// Replace <password> with the password for the <username> user. Ensure any option params are URL encoded.
+```
 
 ## Articles
 
