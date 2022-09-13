@@ -3,7 +3,7 @@
 
 ## About
 
-Keep tracj of project changes
+Keep track of project changes
 
 ### Options
 > Example of tracker table inputs
@@ -48,14 +48,14 @@ Keep tracj of project changes
 
 |  #ID   |  Version  |   Date   |        Status        |     Category      |  Feature   |
 | ------ | --------- | -------- | -------------------- | ----------------- | ---------- |
-| Format | Ex. Beta  | YY/MM/DD | &nbsp;&nbsp;:tada    | &nbsp; Ex. (PM)   | Ex. (Git)  |
-| 001    | Beta      | 22/07/10 | &nbsp;&nbsp;:tada: | &nbsp; Client     | React; Eslint |
-| 002    | Beta      | 22/07/10 | &nbsp;&nbsp;:tada: | &nbsp; Server     | package:dotenv |
-| 003    | Beta      | 22/07/10 | &nbsp;&nbsp;:pray: | &nbsp; PM         | Docsify    |
-| 004    | Beta      | 22/07/11 | &nbsp;&nbsp;:-1:   | &nbsp; Server     | Auth;Database |
-| 005    | Beta      | 22/07/11 | &nbsp;&nbsp;:-1:   | &nbsp; Server     | Auth;ORM   |  
-| 006    | Beta      | 22/07/11 | &nbsp;&nbsp;:-1:   | &nbsp; Server     | Auth;Auth0 |
-| ...    | ....      | ........ | &nbsp;&nbsp;         | &nbsp; .......    | ...        |  
+| Format | Ex. Beta  | YY/MM/DD | &nbsp;&nbsp;:tada: | &nbsp; Ex. (PM)   | Ex. (Git) |
+| 001    | Beta      | YY/MM/DD | &nbsp;&nbsp;:tada: | &nbsp; ......     | ......... |
+| 002    | Beta      | YY/MM/DD | &nbsp;&nbsp;:tada: | &nbsp; ......     | ......... |
+| 003    | Beta      | YY/MM/DD | &nbsp;&nbsp;:pray: | &nbsp; ......     | ......... |
+| 004    | Beta      | YY/MM/DD | &nbsp;&nbsp;:-1:   | &nbsp; ......     | ......... |
+| 005    | Beta      | YY/MM/DD | &nbsp;&nbsp;:-1:   | &nbsp; ......     | ......... |  
+| 006    | Beta      | YY/MM/DD | &nbsp;&nbsp;:-1:   | &nbsp; ......     | ......... |
+| ...    | ....      | ........ | &nbsp;&nbsp;:-1:   | &nbsp; .......    | ......... |  
 
 ---
 
@@ -66,21 +66,15 @@ Keep tracj of project changes
 - [ ] Server
   - [ ] Feature: Page: Home
   - [ ] Feature: Authentication
-    - [ ] Database: MongoDB
+    - [ ] Database: ???
     - [ ] ORM: Prisma
     - [ ] Validation: Joi
     - [ ] Authentication Service: Auth0
   - [ ] Route: User: Profile
   - [ ] Route: User: Settings
-  - [ ] Route: User: Pokedex
-  - [ ] Route: Public: Pokedex
 - [ ] Client
   - [ ] Configure TailwindCSS
   - [ ] Page: Home
-  - [ ] Page: Public: Pokedex
-    - [ ] Connect Public Route to Public Page
-  - [ ] Page: Private (User): Pokedex
-    - [ ] Connect Private Route to Private Page
 
 1. **Common**
    1. Feature: Eslint | Config | Extend
@@ -94,31 +88,18 @@ Keep tracj of project changes
 2. **Server**
    1. Feature: Page: Home
       1. Action: Create route for home page
-   2. Feature: Authentication
-      1. Database | No-SQL | MongoDB
-         1. [Docs](https://www.mongodb.com/docs/)
-         2. [Remote Database](https://www.mongodb.com/free-cloud-database)
-      2. ORM | Prisma
-         1. [Docs](https://www.prisma.io/mongodb)
-         2. [MongoDB Connector](https://www.prisma.io/docs/concepts/database-connectors/mongodb)
-         3. Articles
-            1. https://www.mongodb.com/developer/languages/typescript/type-safety-with-prisma-and-mongodb/
-            2. https://www.mongodb.com/developer/products/mongodb/how-prisma-introspects-a-schema-from-a-mongodb-database/
-            3. https://progressivecoder.com/lightning-fast-guide-on-prisma-mongodb-connection-using-typescript/
-      3. Validation | Joi
-         1. [Docs](https://joi.dev/api/)
-      4. Authentication Service | Auth0
-         1. [Website](https://auth0.com/docs/quickstart/backend/nodejs/01-authorization)
-         2. Articles:
-            1. https://auth0.com/blog/developing-well-organized-apis-with-nodejs-joi-and-mongo/
-            2. https://www.infoworld.com/article/3629129/how-to-use-auth0-with-nodejs-and-express.html
-            3. https://auth0.com/blog/connecting-auth0-to-mongodb/
-   3. Feature: CRUD User Account
-   4. Feature: CRUD User Pokedex
+   2. Feature: Database
+      1. Action: Pick Database
+      2. Action: Setup Prisma ORM
+   3. Feature: Authentication
+      1. Action: 
+   4. Feature: CRUD User Account
+   5. Feature: CRUD User ???
 3. **Client**
    1. Page: Home
-   2. Page: Public Pokedex  
-   3. Page: Private Pokedex
+   2. Page: Public User Profile
+   3. Page: Private User Profile
+   4. Page: Private User Settings
 4.  ...
 
 

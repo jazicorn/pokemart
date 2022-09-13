@@ -22,6 +22,8 @@ TODO: Reorganize page for future feature/package releases
   - [ ] Database | Connect to server
 
 - [ ] **Database** | *Postgres* | Purpose...
+  - [ ] Database Modeling
+  - [ ] Database Migration
   - [ ] Local
     - [ ] setup local instance
     - [ ] connect to dev server

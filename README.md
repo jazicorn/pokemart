@@ -1,5 +1,5 @@
 ## template - next.js - full - user
-> template for next.js projects
+> template for next.js projects (One-liner)
 
 *TODO: [badges](https://shields.io/) go here*
 
@@ -7,7 +7,7 @@
 
 ### README Checklist
 
-- [X] One-liner explaining the purpose of the repo
+- [ ] One-liner explaining the purpose of the repo
 - [ ] Necessary background context & links
 - [ ] Potentially infamiliar terms link to informative sources
 - [ ] Clear, *runnable* example of usage
@@ -16,7 +16,7 @@
 - [ ] Performs [cognitive funneling](https://github.com/noffle/art-of-readme#cognitive-funneling)
 - [ ] Caveats and limitations mentioned up-front
 - [ ] Doesn't rely on images to relay critical information
-- [X] License
+- [ ] License
 - [ ] Add badges
 
 ---
