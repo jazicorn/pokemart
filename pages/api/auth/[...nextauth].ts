@@ -1,6 +1,6 @@
 import NextAuth from "next-auth"
 import GoogleProvider from "next-auth/providers/google"
-import EmailProvider from "next-auth/providers/email"
+// import EmailProvider from "next-auth/providers/email"
 import CredentialsProvider from "next-auth/providers/credentials"
 
 import { PrismaAdapter } from "@next-auth/prisma-adapter"
@@ -29,6 +29,18 @@ const prisma = new PrismaClient()
 // another
 // https://strapi.io/blog/user-authentication-in-next-js-with-strapi
 
+// @ts-ignore
+const signInUser = async ({password, user}) => {
+  if(!user.password) {
+    throw new Error("Incorrect password")
+  }
+  const isMatch = await compare(password, user);
+  if(!isMatch) {
+    throw new Error("Incorrect email or password")
+  }
+  
+  return user
+}
 
 export default NextAuth({
   adapter: PrismaAdapter(prisma),
@@ -210,21 +222,3 @@ export default NextAuth({
 
 })
 
-// @ts-ignore
-const signInUser = async ({password, user}) => {
-  if(!user.password) {
-    throw new Error("Incorrect password")
-  }
-  const isMatch = await compare(password, user);
-  if(!isMatch) {
-    throw new Error("Incorrect email or password")
-  }
-  
-  return user
-}
-
-/* TODO: write attempts module 
-const attempts = async ({}) => {
-
-}
-*/
