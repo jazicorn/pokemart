@@ -1,8 +1,15 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { getProviders, signIn, getSession, getCsrfToken } from "next-auth/react"
+import { useState } from 'react';
+import Link from 'next/link';
 
-export default function SignIn( ) {
+// @ts-ignore
+export default function Register( res:NextApiResponse, req:NextApiRequest) {
 
+// TODO: Register User
+
+// TODO: Request to /api/users/register endpoint
+
+// TODO: User once successfully registered, redirect user
 
 }
 
