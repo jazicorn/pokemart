@@ -1,7 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { getSession } from 'next-auth/react';
 
-// DELETE api/user/[id]
+// Protected Route
+// DELETE api/user/[id] | secure route for deleting a user
 export default async function handler (req: NextApiRequest, res: NextApiResponse) {
     const userId = req.query.id
     const user = await prisma.user.findUnique({

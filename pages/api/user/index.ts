@@ -1,7 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { getSession } from 'next-auth/react'
 
-// GET || UPDATE api/user
+// Protected Route
+// GET || UPDATE api/user | Secure route that returns the specified user
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
 
     const body = req.body
