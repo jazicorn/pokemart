@@ -2,6 +2,8 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 // https://www.prisma.io/docs/getting-started/setup-prisma/add-to-existing-project/relational-databases-typescript-postgres
 
+// !!!TODO!!! Update migration for database
+
 generator client {
   provider = "prisma-client-js"
 }
@@ -13,20 +15,20 @@ datasource db {
 }
 
 model User {
-  id            String    @id @default(cuid())
+  id            String    @unique @id @default(cuid())
   name          String    @unique @db.VarChar(35)
   password      String    @db.VarChar(55)
   email         String    @unique @db.VarChar(55)
   emailConfirm  Boolean   @default(false)
   emailVerified DateTime?
-  status        Status?
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
   role          Role      @default(USER)
   accounts      Account[]
   sessions      Session[]
   todolist      Todo[]
-  profile       Profile? 
+  profile       Profile?  
+
 }
 
 enum Role {
@@ -34,70 +36,33 @@ enum Role {
   ADMIN
 }
 
-model Status {
-  id            String    @id @default(cuid())
-  firstAttempt  DateTime  @default(now())
-  lastAttempt   DateTime  @updatedAt
-  attempts      Attempts[]
-  userId        String
-  
-  user          User      @relation(fields: [userId], references: [id])
-}
-
-// Attempts model only created for user if they enter incorrect password
-model Attempts {
-  id            String    @id @default(cuid())
-  firstAttempt  DateTime  @default(now())
-  lastAttempt   DateTime  @updatedAt
-  total         Int       @default(0)
-  attempt       Attempt[]  
-  blocked       Boolean   @default(false)
-  blockedAt     DateTime
-  statusId      String
-
-  status        Status    @relation(fields: [statusId], references: [id])
-
-}
-
-model Attempt {
-  id            Int       @id @default(autoincrement())
-  pass          Boolean
-  attemptAt     DateTime  @default(now())
-  attemptsId    String
-
-  attempts      Attempts  @relation(fields: [attemptsId], references: [id])
-
-}
-
 model Profile {
-  
+  id            Int       @id @default(autoincrement())
   name_first    String    @map("firstname")
   name_last     String    @map("lastname")
   image         String?
   bio           String    @db.VarChar(555)
   handles       String[]  @db.VarChar(555)
-  userId        String
   complete      Boolean   @default(false)
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
-
+   
   user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
-
+  userId        String    @unique
 }
 
 
 model Todo {
   id            Int       @id @default(autoincrement())
   title         String    @db.VarChar(55)
-  item          Item[]
-  userId        String
+  item          Item[] 
   completed     Boolean   @default(false)
   listType      ListType  @default(TODOLIST)
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
 
   user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
-
+  userId        String
 }
 
 model Item {
@@ -106,10 +71,9 @@ model Item {
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
   completed     Boolean   @default(false)
-  todoId        Int
-
-  todo          Todo      @relation(fields: [todoId], references: [id], onDelete: Cascade)
   
+  todo          Todo      @relation(fields: [todoId], references: [id], onDelete: Cascade)
+  todoId        Int
 }
 
 // create different type of values
