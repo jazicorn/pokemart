@@ -21,6 +21,12 @@ brew install postgresql
 
 - [Prisma/PostgreSQL](https://www.prisma.io/dataguide/postgresql/connecting-to-postgresql-databases)
 
+**Localhost Port:**
+```bash
+# env DATABASE URL for: schema.prisma
+postgresql://postgres:password@localhost:####/databasename?schema=public
+```
+
 #### Deployment
 
 - [PostgreSQL Shell Docs](https://www.postgresql.org/docs/current/app-psql.html)
@@ -28,23 +34,27 @@ brew install postgresql
 **Shell Commands:**
 ```bash
 # Install
-brew install postgresql
+brew install postgresql@14
 
 # Start
-brew services start postgresql
+brew services start postgresql@14
 
 # Stop
-brew services stop postgresql
+brew services stop postgresql@14
 
 # Restart
-brew services restart postgresql
+brew services restart postgresql@14
 
 # Start PostgreSQl Console
 psql
 
 # Uninstall
-brew uninstall postgres
+brew uninstall postgres@14
 ```
+
+**Latest Migration:**
+- migrations/20220914205013_postgres_dev
+
 
 ### PgAdmin4
 
