@@ -1,4 +1,4 @@
-# Prisma
+# [Prisma](https://www.prisma.io/nextjs)
 > ORM for database
 
 ## About
