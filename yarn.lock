@@ -1829,6 +1829,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/swagger-ui-react@npm:^4.11.0":
+  version: 4.11.0
+  resolution: "@types/swagger-ui-react@npm:4.11.0"
+  dependencies:
+    "@types/react": "*"
+  checksum: cec88ffebaba7ce576d4945c901157a4aac360a669741abb6deacdf31435af5a679154d4f9281cc178214441ed1ac2cc800bd7a8f8588d1221984bef0c16c8aa
+  languageName: node
+  linkType: hard
+
 "@types/testing-library__jest-dom@npm:^5.14.3, @types/testing-library__jest-dom@npm:^5.9.1":
   version: 5.14.3
   resolution: "@types/testing-library__jest-dom@npm:5.14.3"
@@ -8395,6 +8404,7 @@ __metadata:
     "@types/ioredis": ^4.28.10
     "@types/jest": ^28.1.0
     "@types/node": ^17.0.35
+    "@types/swagger-ui-react": ^4.11.0
     "@types/testing-library__jest-dom": ^5.14.3
     "@typescript-eslint/eslint-plugin": ^5.26.0
     "@typescript-eslint/parser": ^5.26.0
