@@ -1,5 +1,8 @@
-# Cookie Consent
-> Cookie Consent
+# Cookie Permissions
+> Cookie consent is the interaction that happens on your website between a visitor and a consent management platform (CMP) that enables users to decide whether they will allow cookies to collect their personal data.
+
+**What Are Cookies?**
+> Cookies are text files with small pieces of data — like a username and password — that are used to identify your computer as you use a computer network. Specific cookies known as HTTP cookies are used to identify specific users and improve your web browsing experience.
 
 ---
 
@@ -33,3 +36,9 @@
 ### About 
 - [Homepage](https://www.cookiebot.com/)
 - [Pricing](https://www.cookiebot.com/en/pricing/?utm_source=usercentrics&utm_medium=referral&utm_campaign=pricing-page)
+
+### References
+- [Cookies (Source: Mozilla Website)](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/cookies)
+- [What Are Cookies](https://www.cloudflare.com/learning/privacy/what-are-cookies/)
+- [Cookie Law Explained](https://www.cookielaw.org/the-cookie-law/)
+- [Cookie Concent](https://www.cookiebot.com/en/cookie-consent/)

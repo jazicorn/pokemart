@@ -6,6 +6,10 @@
 🚨!!!Warning!!!🚨
 - [Heroku no longer offers free plans](https://techcrunch.com/2022/08/25/heroku-announces-plans-to-eliminate-free-plans-blaming-fraud-and-abuse/)
 
+## Deployment
+
+- [Deployment - Prisma](https://www.prisma.io/docs/guides/deployment/deployment-guides/deploying-to-heroku)
+
 ## Articles
 
 > How heroku works

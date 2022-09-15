@@ -4,19 +4,13 @@
 
 ## Table of Contents
 
-...
-
-### [Deployment](DEPLOYMENT.md)
-> How to deploy project
-
-...
-
-### [Monitering](MONITERING.md)
-> Monitering information and setup for remote server and online services
-
-...
-
-### [Tools](tools/_index.md)
-> Varies tools and platforms utilized for devop setups and services
-
-...
+1. [Deployment](deployment/_index.md)
+   1. [Docker](deployment/DOCKER.md)
+   2. [Heroku](deployment/HEROKU.md)
+   3. [Render](deployment/RENDER.md)
+   4. [Vercel](deployment/VERCEL.md)
+2. [Tools](tools/_index.md)
+   1. [Docsify](tools/DOCSIFY.md)
+   2. [Sentry](tools/SENTRY.md)
+3. [Analytics](analytics/_index.md)
+   1. [Cookie Permissions](analytics/COOKIE_PERMISSIONS.md)
