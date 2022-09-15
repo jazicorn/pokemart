@@ -8,7 +8,9 @@ export default async function handler (req:NextApiRequest, res: NextApiResponse)
         res.status(405).send({ message: `The HTTP ${req.method} method is not supported at this route.` })
     };
 
-   // return all users 
+    const users = await prisma.user.findMany()
+
+    return users;
     
 }
 
