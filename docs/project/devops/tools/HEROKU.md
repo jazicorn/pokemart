@@ -3,11 +3,10 @@
 
 ## About
 
-...
+🚨!!!Warning!!!🚨
+- [Heroku no longer offers free plans](https://techcrunch.com/2022/08/25/heroku-announces-plans-to-eliminate-free-plans-blaming-fraud-and-abuse/)
 
-## Table of Contents
-
-...
+## Articles
 
 > How heroku works
 https://devcenter.heroku.com/articles/how-heroku-works
@@ -27,7 +26,3 @@ https://devcenter.heroku.com/categories/heroku-postgres
 > Docker deployment
 https://devcenter.heroku.com/categories/deploying-with-docker
 
-> tailwindcss
-https://tailwindcss.com/
-
-> storybook.js | UI Building
