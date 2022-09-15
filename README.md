@@ -23,7 +23,7 @@
 
 ### Requirements
 
-- [Node v16.15.0](https://nodejs.org/en/download/) 
+- [Node v16.16.0](https://nodejs.org/en/download/) 
 
 ### Features
 
@@ -36,12 +36,13 @@
 ### Installation
 
 Want to setup the project yourself? 
-Head over to the [docs](docs/README.md) folder or the [website](https://jazicorn.github.io/template-nextjs-full-user/).
+Head over to the [docs](docs/README.md) folder 
+or the [website](https://jazicorn.github.io/template-nextjs-full-user/).
 
-### [Roadmap](./docs/developer/_ROADMAP.md)
+### [Roadmap](./docs/developer/roadmap/_index.md)
 > Features/steps to project completion
 
-### [Logs](./docs/logs/_index.md)
+### [Logs](./docs/developer/logs/_index.md)
 > Tracker for work done on project
 
 ---
