@@ -1,5 +1,8 @@
-# Roadmap
-> Features/Steps to project completion
+# Beta
+> Features/Steps to project BETA completion
+
+## About
+TODO: What does beta release entail?
 
 TODO: Reorganize page for future feature/package releases
 
