@@ -4,7 +4,7 @@ import { PrismaClient } from "@prisma/client";
 // exhausting your database connection limit.
 //
 // Learn more: 
-// https://pris.ly/d/help/next-js-best-practices
+// https://www.prisma.io/docs/guides/database/troubleshooting-orm/help-articles/nextjs-prisma-client-dev-practices
 
 let prisma: PrismaClient
 
