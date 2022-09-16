@@ -38,12 +38,24 @@ export default function SignIn( {providers, csrfToken }) {
                     <input name="csrfToken" type='hidden' defaultValue={csrfToken}/>
                     <h4>Email</h4>
                     <label>
-                        <input type='email' id='email' name='email' value={email} onChange={e => setEmail(e.target.value)}/>
+                        <input  
+                            type='email' 
+                            id='email' 
+                            name='email' 
+                            value={email} 
+                            onChange={e => setEmail(e.target.value)}
+                        />
                     </label>   
         
                     <h4>Password</h4>
                     <label> 
-                        <input type='text' id='password' name='password' value={password} onChange={e => setPassword(e.target.value)}/>
+                        <input 
+                            type='text' 
+                            id='password' 
+                            name='password' 
+                            value={password} 
+                            onChange={e => setPassword(e.target.value)}
+                        />
                     </label>
                     <p style={{color:'red'}}>{message}</p>
                     <button onClick={(e) => signInUser(e)}>Sign In</button>                                                
@@ -64,24 +76,25 @@ export default function SignIn( {providers, csrfToken }) {
     )
 }
 
-SignIn.getInitialProps = async (context: {req: NextApiRequest, res: NextApiResponse}) => {
-    const {req, res} = context;
-    const session = await getSession({req});
-    
-    if(session && res && session.accessToken) {
-        res.writeHead(302, {
-            Location: "/",
-        });
-        res.end()
-        return;
-    }
 
+export async function getServerSideProps(context: {req: NextApiRequest, res: NextApiResponse}) {
+    const {req } = context;
+    const session = await getSession({ req });
+
+    if (session) {
+        return {
+          redirect: { destination: "/" },
+        };
+    }
     return {
-        session: undefined,
-        csrfToken: await getCsrfToken(context),
-        providers: await getProviders(), 
-    }    
-}
+        props: {
+            csrfToken: await getCsrfToken(context),
+            providers: await getProviders(), 
+        }
+        
+    }
+  }
+  
 
 
 

@@ -2,32 +2,11 @@ import NextAuth from "next-auth"
 import GoogleProvider from "next-auth/providers/google"
 // import EmailProvider from "next-auth/providers/email"
 import CredentialsProvider from "next-auth/providers/credentials"
-
 import { PrismaAdapter } from "@next-auth/prisma-adapter"
 import { PrismaClient } from "@prisma/client"
-
 import { compare } from "bcryptjs"
 
 const prisma = new PrismaClient()
-
-// nextauth-prisma adapter
-// https://next-auth.js.org/adapters/prisma
-
-// add auth pages
-// https://next-auth.js.org/configuration/pages
-
-// nextjs-nextauth example
-// https://github.com/nextauthjs/next-auth-example
-
-// nextjs-middleware for security
-// https://docs-git-misc-docs-nextauthjs.vercel.app/configuration/nextjs#middleware
-
-// example of implementing session & jwt
-// https://hasura.io/blog/next-js-jwt-authentication-with-next-auth-and-integration-with-hasura/
-// another one
-// https://dev.to/mabaranowski/nextjs-authentication-jwt-refresh-token-rotation-with-nextauthjs-5696
-// another
-// https://strapi.io/blog/user-authentication-in-next-js-with-strapi
 
 // @ts-ignore
 const signInUser = async ({password, user}) => {
@@ -38,7 +17,6 @@ const signInUser = async ({password, user}) => {
   if(!isMatch) {
     throw new Error("Incorrect email or password")
   }
-  
   return user
 }
 
