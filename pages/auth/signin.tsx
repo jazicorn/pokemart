@@ -1,13 +1,30 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { getProviders, signIn, getSession, getCsrfToken } from "next-auth/react"
+import { InferGetServerSidePropsType } from 'next'
 import { useState } from 'react';
 import Link from 'next/link';
+
+export async function getServerSideProps(context: {req: NextApiRequest, res: NextApiResponse}) {
+    const {req } = context;
+    const session = await getSession({ req });
+
+    if (session) {
+        return {
+          redirect: { destination: "/" },
+        };
+    }
+    return {
+        props: {
+            csrfToken: await getCsrfToken(context),
+            providers: await getProviders(), 
+        }
+    }
+}
 
 // used flatmap to filter credentials from provider stack
 // https://www.samanthaming.com/tidbits/80-flatmap/
 
-// @ts-ignore
-export default function SignIn( {providers, csrfToken }) {
+export default function SignIn( {providers, csrfToken}:InferGetServerSidePropsType<typeof getServerSideProps>) {
     const [email, setEmail]=useState('');
     const [password, setPassword]=useState('');
     const [message, setMessage]=useState(null);
@@ -75,27 +92,5 @@ export default function SignIn( {providers, csrfToken }) {
         </div>             
     )
 }
-
-
-export async function getServerSideProps(context: {req: NextApiRequest, res: NextApiResponse}) {
-    const {req } = context;
-    const session = await getSession({ req });
-
-    if (session) {
-        return {
-          redirect: { destination: "/" },
-        };
-    }
-    return {
-        props: {
-            csrfToken: await getCsrfToken(context),
-            providers: await getProviders(), 
-        }
-        
-    }
-  }
-  
-
-
 
 
