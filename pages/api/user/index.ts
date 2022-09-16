@@ -3,7 +3,7 @@ import { getSession } from 'next-auth/react'
 
 // Protected Route
 // GET || UPDATE api/user | Secure route that returns the specified user
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function getUser(req: NextApiRequest, res: NextApiResponse) {
 
     const body = req.body
     const user = await prisma.user.findUnique({
