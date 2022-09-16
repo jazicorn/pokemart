@@ -1,12 +1,11 @@
 ## template - next.js - full - user
-> template for next.js projects (One-liner)
+> (One-liner)
 
 *TODO: [badges](https://shields.io/) go here*
 
 ---
 
 ### README Checklist
-
 - [ ] One-liner explaining the purpose of the repo
 - [ ] Necessary background context & links
 - [ ] Potentially infamiliar terms link to informative sources
@@ -25,16 +24,15 @@
 
 - [Node v16.16.0](https://nodejs.org/en/download/) 
 
+---
+
 ### Features
 
 ...Coming Soon
 
-### Requirements
-
-...
+---
 
 ### Installation
-
 Want to setup the project yourself? 
 Head over to the [docs](docs/README.md) folder 
 or the [website](https://jazicorn.github.io/template-nextjs-full-user/).
