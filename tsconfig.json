@@ -23,7 +23,8 @@
       "node",
       "jest",
       "@testing-library/jest-dom"
-    ]
+    ],
+    "strict": false
   },
   "include": [
     "next-env.d.ts",
