@@ -1,13 +1,27 @@
 // User Interface
 export interface Private {
-    id: number
     name: string
     email: string
+    password: string
+    accounts: Array<Object>
+    profile?: {
+        id: number
+        name: string
+        image?: string
+        bio: string
+        handles: string[]
+    }
 }
 
 export interface Public {
-    id: number
-    name: string
-    email: string
+    name?: string
+    email?: string
+    profile?: {
+        id: number
+        name?: string
+        image?: string
+        bio?: string
+        handles?: string[]
+    }
 }
 
