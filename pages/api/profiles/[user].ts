@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { Public } from '../../../lib/types/profiles/user'
+import { Public } from '../../../lib/models/profiles/user'
 
 // GET api/profiles/[user]
 export default async function handler (req:NextApiRequest, res: NextApiResponse) {
