@@ -1,11 +1,14 @@
 # Documentation
 > Accessing and documenting project
 
-## Table Of Contents
-- [Clean Code](CLEAN_CODE.md)
-- [Swagger](SWAGGER.md)
-- [Version](VERSION.md)
-
 ## About
 
 ...
+
+## Table Of Contents
+
+1. [Docsify](DOCSIFY.md)
+2. [Swagger](SWAGGER.md)
+3. [Version](VERSION.md)
+4. [Clean Code](CLEAN_CODE.md)
+   
