@@ -5,8 +5,26 @@
 
 - [Quick Start](https://docsify.js.org/#/quickstart)
 - [Plugins](https://docsify.js.org/#/plugins)
-- [Deploy](https://docsify.js.org/#/deploy)
 - [Offline Mode](https://docsify.js.org/#/pwa)
 - [Awesome Docsify](https://docsify.js.org/#/awesome)
-- [gh-pages Branch Deployment](https://www.bruttin.com/2017/12/22/github-ghpages-worktree.html)
 
+### Docsify Plugins
+
+- [Docsify Themeable](https://jhildenbiddle.github.io/docsify-themeable/#/)
+
+---
+
+## Deployment
+> deploying docisfy 
+
+### Development
+
+**deployment command:**
+```bash
+docsify serve docs
+```
+
+### Production
+
+- [Deploy](https://docsify.js.org/#/deploy)
+- [gh-pages Branch Deployment](https://www.bruttin.com/2017/12/22/github-ghpages-worktree.html)
