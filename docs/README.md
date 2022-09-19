@@ -12,9 +12,10 @@
 ### Table Of Contents
 1. [Developer](developer/_index.md)
    1. [Documentation](developer/documentation/_index.md)
-      1. [CleanCode](developer/documentation/CLEANCODE.md)
+      1. [Docsify](developer/documentation/DOCSIFY.md)
       2. [Swagger](developer/documentation/SWAGGER.md)
       3. [Version](developer/documentation/VERSION.md)
+      4. [CleanCode](developer/documentation/CLEANCODE.md)
    2. [Contribution](developer/contribution/_index.md)
       1. [Onboarding](developer/contribution/ONBOARDING.md)
    3. [Roadmap](developer/roadmap/_index.md)

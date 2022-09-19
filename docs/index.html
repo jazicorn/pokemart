@@ -14,11 +14,11 @@
     window.$docsify = {
       name: 'Template-Nextjs-Full',
       repo: 'https://github.com/jazicorn/template-nextjs-full-user',
-      themeColor: '#0990DB',
+      themeColor: '#457B9D',
       mergeNavbar: true,
-      auto2top: true,
+      hideSidebar: true,
+      loadNavbar: true,
       search: 'auto', // default
-      loadSidebar: true,
       search: {
         maxAge: 86400000, // Expiration time, the default one day
         paths: [], // or 'auto'
@@ -61,10 +61,13 @@
   </script>
   <!-- Docsify v4 -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
-  <!--allow for full text search-->
+  <!--Allow for full text search-->
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
   <!--Allows user to copy code to clipboard-->
   <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
+  <!--Allows navbar and emojis-->
+  <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+  <script src="//unpkg.com/docsify/lib/plugins/emoji.min.js"></script>
 </body>
 </html>
