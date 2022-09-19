@@ -1,4 +1,4 @@
-# Testing
+# Packaging
 > ...
 
 ## About
@@ -7,4 +7,8 @@
 
 ## Table of Contents
 
-1. [Jest](JEST.md)
+1. [Yarn](YARN.md)
+
+---
+
+
