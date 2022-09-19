@@ -10,6 +10,9 @@
 - [Lifting State Up](https://reactjs.org/docs/lifting-state-up.html)
 - [Typechecking With PropTypes](https://www.npmjs.com/package/prop-types)
 - [prop-types: npm](https://www.npmjs.com/package/prop-types)
+- [Code Academy | React Cheat Sheet](https://www.codecademy.com/learn/react-101/modules/react-101-jsx-u/cheatsheet)
+  
+---
 
 ### Hooks
 - [API: Hooks Reference](https://reactjs.org/docs/hooks-reference.html)
@@ -25,6 +28,8 @@
 
 #### [Context](https://reactjs.org/docs/context.html)
 - [API: useContext](https://reactjs.org/docs/hooks-reference.html#usecontext)
+
+---
 
 ### React Router
 - [Awesome Example of Router parameters in use: Github](https://gist.github.com/ramirezsandin/cc93f6a405ff818e48038e28a26a1ba0) 
