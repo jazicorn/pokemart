@@ -7,7 +7,10 @@
 
 ## Table of Contents
 
-1. [Git](GIT.md)
+1. [Git](github/_index.md)
+   1. [Markdown](github/MARKDOWN.md)
+   2. [Commands](github/COMMANDS.md)
+   3. [Branches](github/BRANCHES.md)
 2. [Husky](HUSKY.md)
 3. [Formatting](formatting/_index.md)
     1. [Eslint](formatting/ESLINT.md)

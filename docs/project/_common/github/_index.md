@@ -1,5 +1,5 @@
-# Git
-> Repository managment utilizing github
+# Github
+> Repository managment
 
 ## About
 
@@ -7,9 +7,17 @@
 
 ## Table of Contents
 
+1. [Markdown](MARKDOWN.md)
+2. [Commands](COMMANDS.md)
+3. [Branches](BRANCHES.md)
+
+## Articles
+
 ...
 
-## Commands
+---
+
+## Popular Commands
 
 ```bash
 
@@ -23,6 +31,3 @@ git reset --hard HEAD
 git clean -df 
 
 ```
-## Articles
-
-...

@@ -26,7 +26,7 @@
       1. [Formatting](project/_common/formatting/_index.md)
       2. [Testing](project/_common/testing/_index.md)
       3. [Packaging](project/_common/packaging/_index.md)
-      4. [Git](project/_common/GIT.md)
+      4. [Github](project/_common/github/_index.md)
       5. [Husky](project/_common/HUSKY.md)
    2. [Client](project/client/_index.md)
       1. [Frameworks](project/client/frameworks/_index.md)
