@@ -10,6 +10,7 @@
     "migrate:postgres:dev": "dotenv -e lib/env/.env.development.local -- npx prisma migrate dev --name postgres-dev",
     "migrate:postgres:test": "dotenv -e lib/env/.env.test.local -- npx prisma migrate dev --name postgres-test",
     "test": "jest",
+    "prepare": "husky install",
     "postinstall": "husky install",
     "prepack": "pinst --disable",
     "postpack": "pinst --enable"
