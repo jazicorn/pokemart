@@ -1,59 +1,63 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
-import { validate } from '../../../lib/validation/validate'
-import schema from '../../../lib/validation/schemas/account'
-import bcrypt from 'bcryptjs'
+import type { NextApiRequest, NextApiResponse } from 'next';
+import bcrypt from 'bcryptjs';
+import { validate } from '../../../lib/validation/validate';
+import schema from '../../../lib/validation/schemas/account';
 
 // Public Route
 // POST /api/users/register | Route for registering a new user with the Next.js app
-export default async function handler (req:NextApiRequest, res: NextApiResponse) {
-    
-    if(req.method != 'POST') {
-        res.status(405).send({ message: `The HTTP ${req.method} method is not supported at this route.` })
-    };
+export default async function handler(
+    req: NextApiRequest,
+    res: NextApiResponse
+) {
+    if (req.method != 'POST') {
+        res.status(405).send({
+            message: `The HTTP ${req.method} method is not supported at this route.`,
+        });
+    }
 
     // request data
-    const body = req.body;
+    const { body } = req;
 
     // Error if user already found
-    try {      
+    try {
         const user = await prisma.user.findUnique({
             where: {
-            email: body.email,
+                email: body.email,
             },
             select: {
                 email: true,
-                name: true
-            }
+                name: true,
+            },
         });
-        if(user.name) {
-            res.status(200).json({ message: 'Username already registered'})
-            return
-        };
+        if (user.name) {
+            res.status(200).json({ message: 'Username already registered' });
+            return;
+        }
         if (user.email) {
-            res.status(200).json({ message: 'Email already registered'})
-        };
+            res.status(200).json({ message: 'Email already registered' });
+        }
     } catch (err) {
-        res.status(400).send(err)
+        res.status(400).send(err);
     }
 
     // validate user data before creating new user and hashing password
     try {
-        validate (schema, body)
-    } catch(err) {
-        res.status(400).json({ message: 'Invalid Data' })
+        validate(schema, body);
+    } catch (err) {
+        res.status(400).json({ message: 'Invalid Data' });
     }
 
     // create new user with username, email, and password
-    try{
+    try {
         // create user if email not found in database
         await prisma.user.create({
             data: {
                 user: body.name,
-                email: body.email        
-            }
+                email: body.email,
+            },
         });
 
-        // generate salt to hash password 
+        // generate salt to hash password
         const salt = await bcrypt.genSalt(10);
         // now we set user password to hashed password
         const password = await bcrypt.hash(body.password, salt);
@@ -62,13 +66,12 @@ export default async function handler (req:NextApiRequest, res: NextApiResponse)
         await prisma.user.update({
             where: body.email,
             data: {
-                password: password
-            }
+                password,
+            },
         });
 
-        res.status(200).json({ message: 'Registered successfuly' }); 
-    } catch(err) {
-       res.status(400).json(err)
+        res.status(200).json({ message: 'Registered successfuly' });
+    } catch (err) {
+        res.status(400).json(err);
     }
-    
 }
