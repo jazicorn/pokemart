@@ -27,7 +27,7 @@ model User {
   accounts      Account[]
   sessions      Session[]
   todolist      Todo[]
-  profile       Profile?  
+  profile       Profile?
 
 }
 
@@ -46,8 +46,8 @@ model Profile {
   complete      Boolean   @default(false)
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
-   
-  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  user          User      @relation(fields: [userId], references: [name], onDelete: Cascade)
   userId        String    @unique
 }
 
@@ -55,7 +55,7 @@ model Profile {
 model Todo {
   id            Int       @id @default(autoincrement())
   title         String    @db.VarChar(55)
-  item          Item[] 
+  item          Item[]
   completed     Boolean   @default(false)
   listType      ListType  @default(TODOLIST)
   createdAt     DateTime  @default(now())
@@ -71,7 +71,7 @@ model Item {
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
   completed     Boolean   @default(false)
-  
+
   todo          Todo      @relation(fields: [todoId], references: [id], onDelete: Cascade)
   todoId        Int
 }
