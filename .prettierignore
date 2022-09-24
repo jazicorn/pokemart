@@ -8,5 +8,6 @@ postcss.config.js
 docs/
 jest.config.ts
 jest.setup.ts
+.prettierrc.js
 dist
 coverage
