@@ -20,6 +20,9 @@
 - [Prisma Migrate](https://www.prisma.io/docs/concepts/components/prisma-migrate)
 - [Prisma Studio](https://www.prisma.io/docs/concepts/components/prisma-studio)
 
+#### Creating Users
+- [typesafe code](https://levelup.gitconnected.com/writing-type-safe-javascript-code-with-prisma-and-mysql-929a73930cba)
+
 #### Migrating Database
 ```bash
 # creates database mapping in folder under /--######_init 
