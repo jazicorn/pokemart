@@ -39,3 +39,16 @@ psql
 brew uninstall postgres@14
 ```
 ---
+
+### Database Setup/Update/Migration
+
+#### Database Migration
+```bash
+# package command | "migrate:postgres:dev": "dotenv -e lib/env/.env.development.local -- npx prisma migrate dev --name postgres-dev",
+yarn migrate:postgres:dev
+```
+#### Database Seeding
+```bash
+# package command | "dev:generate": "dotenv -e lib/env/.env.development.local npx prisma generate",
+yarn dev:generate
+```
