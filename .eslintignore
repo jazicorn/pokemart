@@ -10,3 +10,4 @@ jest.config.ts
 jest.setup.ts
 dist
 coverage
+lib/
