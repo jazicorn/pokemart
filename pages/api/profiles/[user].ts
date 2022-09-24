@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
+import { Profile } from '../../../lib/interfaces';
 import prisma from '../../../lib/prisma';
-import { Public } from '../../../lib/models/profiles/user';
 
 // GET api/profiles/[user]
 export default async function handler(
@@ -17,21 +17,16 @@ export default async function handler(
     // select id from request
     const userName = req.query.name;
 
-    // select user profile
-    const getProfile: Readonly<Public> = await prisma.user.findUnique({
-        where: {
-            name: userName,
-        },
-        select: {
-            profile: true,
-        },
-    });
-    if (getProfile == null) {
-        res.status(404).send({
-            message: `Not Found.`,
+    if (typeof userName === 'string') {
+        // select user profile
+        const getProfile: Profile = await prisma.profile.findUnique({
+            where: {
+                userId: userName,
+            },
         });
+        // return user profile
+        res.status(200).json(getProfile);
     }
 
-    // if !session return user profile public fields only
-    res.status(200).json(getProfile);
+    res.status(404).send({ message: `Not Found.` });
 }
