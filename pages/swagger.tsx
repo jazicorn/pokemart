@@ -1,23 +1,38 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { GetStaticProps, InferGetStaticPropsType } from 'next';
+import { createSwaggerSpec } from 'next-swagger-doc';
 import dynamic from 'next/dynamic';
-import Head from 'next/head';
 import 'swagger-ui-react/swagger-ui.css';
 
-// @ts-ignore
-const SwaggerUI = dynamic<{ url: string }>(import('swagger-ui-react'), {
-    ssr: false,
-});
-
-export default function Index() {
-    return (
-        <div>
-            <Head>
-                <title>Template-Nextjs-Full-User</title>
-                <meta
-                    name="description"
-                    content="Template for Nextjs App with Authentication"
-                />
-            </Head>
-            <SwaggerUI url="/api/doc" />
-        </div>
-    );
+function ApiDoc({ spec }: InferGetStaticPropsType<typeof getStaticProps>) {
+    return <SwaggerUI spec={spec} />;
 }
+
+const SwaggerUI = dynamic<{ spec: Record<string, any> }>(
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    import('swagger-ui-react'),
+    { ssr: false }
+);
+
+export const getStaticProps: GetStaticProps = async () => {
+    const spec: Record<string, any> = createSwaggerSpec({
+        apiFolder: 'pages/api',
+        schemaFolders: ['./lib/models'],
+        definition: {
+            openapi: '3.0.0',
+            info: {
+                title: 'Template-Nextjs-Full-User',
+                version: '1.0',
+            },
+        },
+    });
+
+    return {
+        props: {
+            spec,
+        },
+    };
+};
+
+export default ApiDoc;
