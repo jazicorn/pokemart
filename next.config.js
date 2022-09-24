@@ -2,7 +2,7 @@ const { PHASE_DEVELOPMENT_SERVER } = require('next/constants')
 
 // @ts-check
 
-/*@type {import('next').NextConfig}*/ 
+/*@type {import('next').NextConfig}*/
 
 // module.exports = (phase, { defaultConfig }) => {
 //   if (phase === PHASE_DEVELOPMENT_SERVER) {
@@ -16,6 +16,18 @@ const { PHASE_DEVELOPMENT_SERVER } = require('next/constants')
 //     /* config options for all phases except development here */
 //   }
 // }
+
+const withTM = require('next-transpile-modules')([
+  'swagger-ui-react',
+  'react-syntax-highlighter',
+  'swagger-client'
+]);
+
+const nextConfig = {
+  reactStrictMode: true,
+}
+
+module.exports = withTM(nextConfig);
 
 module.exports = {
   onDemandEntries: {
