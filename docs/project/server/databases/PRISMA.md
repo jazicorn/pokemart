@@ -20,6 +20,12 @@
 - [Prisma Migrate](https://www.prisma.io/docs/concepts/components/prisma-migrate)
 - [Prisma Studio](https://www.prisma.io/docs/concepts/components/prisma-studio)
 
+#### Migrating Database
+```bash
+# creates database mapping in folder under /--######_init 
+prisma migrate dev --name init
+```
+
 #### Seeding Your Database
 - [Docs](https://www.prisma.io/docs/guides/database/seed-database)
 - https://www.stackfive.io/work/prisma/seeding-relational-data-with-prisma
@@ -31,9 +37,15 @@
 - https://www.getsynth.com/docs/blog/2021/08/31/seeding-databases-tutorial
 - [prisma-db-seed-faker-ex](https://lewistyler.xyz/2022/02/04/prisma-db-seed-faker-example/)
 
-**💡 when .env file not in rootdirectory:**
+#### Database Seeding
 ```bash
-# I used dotenv to use choose which env file to use
+# package command | "dev:generate": "dotenv -e lib/env/.env.development.local npx prisma generate",
+yarn dev:generate
+```
+
+**💡 when .env file not in rootdirectory:**
+```bash 
+# Use dotenv to designate env file and/or location
 yarn dotenv -e lib/env/.env.development.local prisma db seed  
 ```
 ---
