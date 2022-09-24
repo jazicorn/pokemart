@@ -9,6 +9,8 @@
 - [Prisma: Getting Started](https://www.prisma.io/docs/getting-started)
 - [Prisma: Data Guide](https://www.prisma.io/dataguide/)
 
+---
+
 ### Prisma Concepts
 - [Prisma Schema](https://www.prisma.io/docs/concepts/components/prisma-schema)
 - [Prisma Schema: Generators](https://www.prisma.io/docs/concepts/components/prisma-schema/generators)
@@ -18,9 +20,7 @@
 - [Prisma Migrate](https://www.prisma.io/docs/concepts/components/prisma-migrate)
 - [Prisma Studio](https://www.prisma.io/docs/concepts/components/prisma-studio)
 
-## Concepts
-
-### Seeding Your Database
+#### Seeding Your Database
 - [Docs](https://www.prisma.io/docs/guides/database/seed-database)
 - https://www.stackfive.io/work/prisma/seeding-relational-data-with-prisma
 - https://github.com/prisma/prisma-examples/blob/latest/typescript/graphql/prisma/seed.ts
@@ -31,12 +31,28 @@
 - https://www.getsynth.com/docs/blog/2021/08/31/seeding-databases-tutorial
 - [prisma-db-seed-faker-ex](https://lewistyler.xyz/2022/02/04/prisma-db-seed-faker-example/)
 
+**💡 when .env file not in rootdirectory:**
+```bash
+# I used dotenv to use choose which env file to use
+yarn dotenv -e lib/env/.env.development.local prisma db seed  
+```
+---
+
 ## Add-ons/Tools
 
 ### Faker.js
 > Fake data to seed developer/testing database
 
 - [Website](https://fakerjs.dev/)
+
+### @prisma/faker
+>In testing workflows, generating seed data usually includes a lot of boilerplate. We either rely on hardcoded fixtures that need to be migrated with changing code.
+
+>@prisma/faker solves this by generating seed data based on your Prisma schema, as your application evolves, the generated data also evolves deterministically.
+
+- [prsiam-faker](https://github.com/maticzav/prisma-faker)
+
+---
 
 ## Articles
 
