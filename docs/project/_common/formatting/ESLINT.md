@@ -4,7 +4,8 @@
 
 ## About
 
-...
+- [Eslint Documentation](https://eslint.org/docs/latest/)
+- [Next.js/Eslint Documentation](https://nextjs.org/docs/basic-features/eslint)
 
 ## Table of Contents
 
@@ -35,3 +36,9 @@ module.exports = {
   ],
 }
 ```
+
+## Articles/Help
+- https://www.jakeprins.com/blog/how-to-use-eslint-and-prettier-in-your-next-js-application-with-typescript
+- https://stackoverflow.com/questions/58233482/next-js-setting-up-eslint-for-nextjs
+- https://dev.to/jonasmerlin/automatically-lint-format-your-code-on-commit-when-using-next-js-3p6g 
+- https://blog.back4app.com/javascript-coding-standards/
