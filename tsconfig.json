@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
@@ -19,34 +15,25 @@
     "incremental": true,
     "experimentalDecorators": true,
     "strictNullChecks": false,
-    "types": [
-      "node",
-      "jest",
-      "@testing-library/jest-dom"
-    ],
+    "types": ["node", "jest", "@testing-library/jest-dom"],
     "strict": false
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "lib/types"
-, "lib/models/profiles"  ],
-  "exclude": [
-    "node_modules"
+    "lib/types",
+    "lib/models/profiles"
   ],
+  "exclude": ["node_modules"],
   "ts-node": {
     "baseUrl": ".",
     "paths": {
-      "@components/*": [
-        "components/*"
-      ],
-      "@pages/*": [
-        "pages/*"
-      ],
-      "@hooks/*": [
-        "hooks/*"
-      ]
+      "*": ["/*"],
+      "@components/*": ["components/*"],
+      "@pages/*": ["pages/*"],
+      "@hooks/*": ["hooks/*"],
+      "lib/*": ["lib/*"]
     }
   }
 }
