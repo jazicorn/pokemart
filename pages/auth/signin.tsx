@@ -29,9 +29,20 @@ export async function getServerSideProps(context: {
     };
 }
 
-// used flatmap to filter credentials from provider stack
-// https://www.samanthaming.com/tidbits/80-flatmap/
+// TODO finish adding types to errors on this page
+// react types for events | https://stackoverflow.com/questions/42081549/typescript-react-event-types
+// Maybe add these types to my lib/types folder as exports?
+type InputEvent = React.ChangeEvent<HTMLInputElement>;
+type ButtonEvent = React.MouseEvent<HTMLButtonElement>;
 
+interface Profile {
+    id: string;
+    name: string;
+    clientId: string;
+    clientSecret: string;
+}
+
+// used flatmap to filter credentials from provider stack | https://www.samanthaming.com/tidbits/80-flatmap/
 export default function SignIn({
     providers,
     csrfToken,
@@ -39,7 +50,7 @@ export default function SignIn({
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [message, setMessage] = useState(null);
-    const signInUser = async (e: any) => {
+    const signInUser = async (e) => {
         e.preventDefault();
         const options = { redirect: false, email, password };
         const res = await signIn('credentials', options);
@@ -75,7 +86,9 @@ export default function SignIn({
                             id="email"
                             name="email"
                             value={email}
-                            onChange={(e) => setEmail(e.target.value)}
+                            onChange={(e: InputEvent) =>
+                                setEmail(e.target.value)
+                            }
                         />
                     </label>
 
@@ -86,14 +99,18 @@ export default function SignIn({
                             id="password"
                             name="password"
                             value={password}
-                            onChange={(e) => setPassword(e.target.value)}
+                            onChange={(e: InputEvent) =>
+                                setPassword(e.target.value)
+                            }
                         />
                     </label>
                     <p style={{ color: 'red' }}>{message}</p>
-                    <button onClick={(e) => signInUser(e)}>Sign In</button>
+                    <button onClick={(e: ButtonEvent) => signInUser(e)}>
+                        Sign In
+                    </button>
                 </form>
             </div>
-            {Object.values(providers).map((provider: any) => {
+            {Object.values(providers).map((provider: Profile) => {
                 const ignore = 'Credentials' || 'Email';
                 return provider.name === ignore ? (
                     []
