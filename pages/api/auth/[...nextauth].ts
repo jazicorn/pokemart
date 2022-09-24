@@ -8,7 +8,6 @@ import { compare } from 'bcryptjs';
 
 const prisma = new PrismaClient();
 
-// @ts-ignore
 const signInUser = async ({ password, user }) => {
     if (!user.password) {
         throw new Error('Incorrect password');
@@ -38,7 +37,7 @@ export default NextAuth({
                 },
                 password: { label: 'Password', type: 'password' },
             },
-            async authorize(credentials, req) {
+            async authorize(credentials) {
                 // You need to provide your own logic here that takes the credentials
                 // submitted and returns either a object representing a user or value
                 // that is false/null if the credentials are invalid.
@@ -91,8 +90,8 @@ export default NextAuth({
     }), */
         GoogleProvider({
             name: 'Google',
-            clientId: process.env.GOOGLE_CLIENT_ID!,
-            clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+            clientId: process.env.GOOGLE_CLIENT_ID || null,
+            clientSecret: process.env.GOOGLE_CLIENT_SECRET || null,
         }),
         // AppleProvider({
         //   clientId: process.env.APPLE_ID,
