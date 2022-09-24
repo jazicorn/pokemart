@@ -23,7 +23,7 @@ export default async function getUser(
     switch (req.method) {
         case 'GET':
             if (user) {
-                return user;
+                res.status(200).json(user);
             }
             return;
         case 'UPDATE':
