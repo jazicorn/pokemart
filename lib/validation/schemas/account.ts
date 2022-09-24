@@ -1,14 +1,14 @@
-import Joi from "joi";
+import Joi from 'joi';
 
 const schema = Joi.object({
-    username: Joi.string()
-        .alphanum()
-        .min(5)
-        .max(20)
-        .required(),
+    username: Joi.string().alphanum().min(5).max(20).required(),
 
     password: Joi.string()
-        .pattern(new RegExp('?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,16}'))
+        .pattern(
+            new RegExp(
+                '?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,16}'
+            )
+        )
         .required()
         .strict(),
 
@@ -21,12 +21,9 @@ const schema = Joi.object({
         .email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } })
         .lowercase()
         .required(),
-    role: Joi.string()
-        .valid('Admin', 'User')
-        .required()
-})
+    role: Joi.string().valid('Admin', 'User').required(),
+});
 
 const schemaAccount = Joi.object(schema).with('password', 'repeat_password');
 
-export default schemaAccount
-
+export default schemaAccount;
