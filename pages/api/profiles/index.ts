@@ -1,4 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
+import prisma from '../../../lib/prisma';
 
 // Public Route
 // GET /api/profiles | Route that returns all users.
@@ -14,5 +15,5 @@ export default async function handler(
 
     const users = await prisma.user.findMany();
 
-    return users;
+    res.status(200).json(users);
 }
