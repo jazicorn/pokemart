@@ -4,23 +4,23 @@
  */
 // great article on setting up jest with nextjs
 // https://www.kyrelldixon.com/blog/setup-jest-and-react-testing-library-with-nextjs
-/**In order to get file to run I had to change "isolatedModules" from true to false, */
+/** In order to get file to run I had to change "isolatedModules" from true to false, */
 
 // const nextJest = require('next/jest')
 
-import nextJest from 'next/jest'
+import nextJest from 'next/jest';
 
 const createJestConfig = nextJest({
   dir: './',
-})
+});
 
 const customJestConfig = {
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
   moduleDirectories: ['node_modules', '<rootDir>/'],
   testEnvironment: 'jest-environment-jsdom',
-}
+};
 
-module.exports = createJestConfig(customJestConfig)
+module.exports = createJestConfig(customJestConfig);
 
 // customizable inputs
 //   // All imported modules in your tests should be mocked automatically
@@ -230,8 +230,3 @@ module.exports = createJestConfig(customJestConfig)
 
 //   // Whether to use watchman for file crawling
 //   // watchman: true,
-
-
-
-
-
