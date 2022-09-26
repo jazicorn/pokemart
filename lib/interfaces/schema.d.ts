@@ -16,11 +16,10 @@ export interface User {
     accounts?: Array<Account>;
     sessions?: Array<Session>;
     todolist?: Array<Todo>;
-    profile?: Profile;
 }
 
 export interface Profile {
-    id?: number;
+    id?: string;
     name_first?: string;
     name_last?: string;
     image?: string | null;
