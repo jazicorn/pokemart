@@ -5,6 +5,7 @@
 - [Prisma: Nextjs](https://www.prisma.io/nextjs)
 - [Pricing](https://www.prisma.io/pricing)
 - [Documentation](https://www.prisma.io/docs/)
+- [API Reference](https://www.prisma.io/docs/reference/api-reference/prisma-client-reference)
 - [Example Projects: Github](https://github.com/prisma/prisma-examples)
 - [Prisma: Getting Started](https://www.prisma.io/docs/getting-started)
 - [Prisma: Data Guide](https://www.prisma.io/dataguide/)
@@ -17,8 +18,33 @@
 - [Prisma Schema: Data Model](https://www.prisma.io/docs/concepts/components/prisma-schema/data-model)
 - [Prisma Schema: Relations](https://www.prisma.io/docs/concepts/components/prisma-schema/relations)
 - [Prisma Client](https://www.prisma.io/docs/concepts/components/prisma-client)
+- [Prisma Client: CRUD](https://www.prisma.io/docs/concepts/components/prisma-client/crud)
+- [Prisma Client: Select Fields](https://www.prisma.io/docs/concepts/components/prisma-client/select-fields)
+- [Prisma Client: Filtering and Sorting](https://www.prisma.io/docs/concepts/components/prisma-client/filtering-and-sorting)
 - [Prisma Migrate](https://www.prisma.io/docs/concepts/components/prisma-migrate)
 - [Prisma Studio](https://www.prisma.io/docs/concepts/components/prisma-studio)
+- [Prisma Validator](https://www.prisma.io/docs/concepts/components/prisma-client/advanced-type-safety/prisma-validator)
+- [Logging](https://www.prisma.io/docs/concepts/components/prisma-client/middleware/logging-middleware)
+- [Session Data](https://www.prisma.io/docs/concepts/components/prisma-client/middleware/session-data-middleware)
+- [Full Text Search (Preview)](https://www.prisma.io/docs/concepts/components/prisma-client/full-text-search)
+- [Custom Validation](https://www.prisma.io/docs/concepts/components/prisma-client/custom-validation)
+- [Pagination](https://www.prisma.io/docs/concepts/components/prisma-client/pagination)
+- [Exclude fields](https://www.prisma.io/docs/concepts/components/prisma-client/excluding-fields)
+- [null vs undefined](https://www.prisma.io/docs/concepts/components/prisma-client/null-and-undefined)
+- [Handling Excepts and Errors](https://www.prisma.io/docs/concepts/components/prisma-client/handling-exceptions-and-errors)
+
+#### [Working with Json fields](https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields)
+```ts
+// The Json field supports a few additional types, such as string and boolean. 
+// These additional types exist to match the types supported by JSON.parse():
+export declare type JsonValue =
+  | string
+  | number
+  | boolean
+  | null
+  | JsonObject
+  | JsonArray
+```
 
 #### Creating Users
 - [typesafe code](https://levelup.gitconnected.com/writing-type-safe-javascript-code-with-prisma-and-mysql-929a73930cba)
@@ -51,9 +77,10 @@ yarn dev:generate
 # Use dotenv to designate env file and/or location
 yarn dotenv -e lib/env/.env.development.local prisma db seed  
 ```
+
 ---
 
-## Add-ons/Tools
+## 3rd Party API's
 
 ### Faker.js
 > Fake data to seed developer/testing database
