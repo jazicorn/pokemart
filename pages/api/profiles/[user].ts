@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { Profile } from '../../../lib/interfaces';
+import { Profile } from '../../../lib/interfaces/schema';
 import prisma from '../../../lib/prisma';
 
 // GET api/profiles/[user]
