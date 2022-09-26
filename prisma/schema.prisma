@@ -2,8 +2,6 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 // https://www.prisma.io/docs/getting-started/setup-prisma/add-to-existing-project/relational-databases-typescript-postgres
 
-// !!!TODO!!! Update migration for database
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -37,7 +35,7 @@ enum Role {
 }
 
 model Profile {
-  id            Int       @id @default(autoincrement())
+  id            String    @unique @id @default(cuid())
   name_first    String    @map("firstname")
   name_last     String    @map("lastname")
   image         String?
