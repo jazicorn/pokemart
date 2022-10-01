@@ -13,7 +13,7 @@ export default async function handler(
         });
     }
 
-    const users = await prisma.user.findMany();
+    const profiles = await prisma.profile.findMany();
 
-    res.status(200).json(users);
+    res.status(200).json(profiles);
 }
