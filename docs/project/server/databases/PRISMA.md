@@ -55,6 +55,22 @@ export declare type JsonValue =
 prisma migrate dev --name init
 ```
 
+#### Migrate Dev
+The migrate dev command updates your database using migrations during development and creates the database if it does not exist.
+```bash
+npx prisma migrate dev
+```
+- [migrate dev](https://www.prisma.io/docs/guides/database/developing-with-prisma-**migrate**)
+- [API Docs](https://www.prisma.io/docs/reference/api-reference/command-reference#migrate-dev)
+
+#### Migrate Reset
+This command deletes and recreates the database, or performs a 'soft reset' by removing all data, tables, indexes, and other artifacts.
+```bash
+prisma migrate reset
+```
+- [API Docs](https://www.prisma.io/docs/reference/api-reference/command-reference#migrate-reset)
+- [github issue](https://github.com/prisma/prisma/discussions/9665)
+
 #### Seeding Your Database
 - [Docs](https://www.prisma.io/docs/guides/database/seed-database)
 - https://www.stackfive.io/work/prisma/seeding-relational-data-with-prisma
@@ -77,6 +93,8 @@ yarn dev:generate
 # Use dotenv to designate env file and/or location
 yarn dotenv -e lib/env/.env.development.local prisma db seed  
 ```
+
+- [Prisma Migrate & Seeding](https://www.prisma.io/docs/guides/database/seed-database#integrated-seeding-with-prisma-migrate)
 
 ---
 
