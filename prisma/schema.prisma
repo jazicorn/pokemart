@@ -26,7 +26,6 @@ model User {
   sessions      Session[]
   todolist      Todo[]
   profile       Profile?
-
 }
 
 enum Role {
@@ -45,8 +44,8 @@ model Profile {
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
 
-  user          User      @relation(fields: [userId], references: [name], onDelete: Cascade)
-  userId        String    @unique
+  user          User?     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId        String?   @unique
 }
 
 

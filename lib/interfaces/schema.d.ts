@@ -16,6 +16,7 @@ export interface User {
     accounts?: Array<Account>;
     sessions?: Array<Session>;
     todolist?: Array<Todo>;
+    profile?: Profile;
 }
 
 export interface Profile {
@@ -28,7 +29,6 @@ export interface Profile {
     complete?: boolean;
     createdAt?: Date | string;
     updatedAt: Date | string;
-    userId?: string;
 }
 
 export enum ListType {
