@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { PrismaClient, User } from '@prisma/client';
 import { faker } from '@faker-js/faker';
 
@@ -9,7 +10,7 @@ const createUsers = async () => {
         await prisma.user.deleteMany({}); // use with caution.
 
         // create 50 new users
-        const amountOfUsers = 50;
+        const amountOfUsers = 10;
 
         // initilize empty array for new User array
         const users: User[] = [];
@@ -18,9 +19,22 @@ const createUsers = async () => {
             const firstName = faker.name.firstName();
             const lastName = faker.name.lastName();
 
+            const ids = [
+                '1111',
+                '2222',
+                '3333',
+                '4444',
+                '5555',
+                '6666',
+                '7777',
+                '8888',
+                '9999',
+                '1234',
+            ];
+
             const user: User = {
-                id: faker.datatype.uuid(),
-                name: faker.internet.userName(),
+                id: ids[i],
+                name: faker.datatype.string(10),
                 password: faker.internet.password(55),
                 email: faker.internet.email(firstName, lastName),
                 emailConfirm: false,
@@ -36,7 +50,9 @@ const createUsers = async () => {
 
         // prisma creares new users in to database
         const addUsers = async () => {
-            await prisma.user.createMany({ data: users });
+            await prisma.user.createMany({
+                data: users,
+            });
         };
         //creates object to export users
         addUsers();
