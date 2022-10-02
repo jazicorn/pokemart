@@ -29,6 +29,7 @@ export interface Profile {
     complete?: boolean;
     createdAt?: Date | string;
     updatedAt: Date | string;
+    userName?: string | null;
 }
 
 export enum ListType {

@@ -13,7 +13,7 @@ datasource db {
 }
 
 model User {
-  id            String    @unique @id @default(cuid())
+  id            String    @id @unique @default(cuid())
   name          String    @unique @db.VarChar(35)
   password      String    @db.VarChar(55)
   email         String    @unique @db.VarChar(55)
@@ -25,7 +25,9 @@ model User {
   accounts      Account[]
   sessions      Session[]
   todolist      Todo[]
-  profile       Profile?
+  Profile       Profile?
+
+  @@unique([id, name])
 }
 
 enum Role {
@@ -34,43 +36,44 @@ enum Role {
 }
 
 model Profile {
-  id            String    @unique @id @default(cuid())
-  name_first    String?   @map("firstname")
-  name_last     String?   @map("lastname")
-  image         String?
-  bio           String?   @db.VarChar(555)
-  handles       String[]  @db.VarChar(555)
-  complete      Boolean?  @default(false)
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
+  id           String   @id @unique @default(cuid())
+  name_first   String?  @map("firstname")
+  name_last    String?  @map("lastname")
+  image        String?
+  bio          String?  @db.VarChar(555)
+  handles      String[] @db.VarChar(555)
+  complete     Boolean? @default(false)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
 
-  user          User     @relation(fields: [userId], references: [id])
-  userId        String   @unique
+  user        User   @relation(fields: [userId, userName], references: [id, name] )
+  userId      String @unique
+  userName    String   @unique @db.VarChar(35)
+  @@unique([userId, userName])
 }
 
-
 model Todo {
-  id            Int       @id @default(autoincrement())
-  title         String    @db.VarChar(55)
-  item          Item[]
-  completed     Boolean   @default(false)
-  listType      ListType  @default(TODOLIST)
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
+  id        Int      @id @default(autoincrement())
+  title     String   @db.VarChar(55)
+  item      Item[]
+  completed Boolean  @default(false)
+  listType  ListType @default(TODOLIST)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
-  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
-  userId        String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId String
 }
 
 model Item {
-  id            Int       @id @default(autoincrement())
-  action        String    @db.VarChar(255)
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
-  completed     Boolean   @default(false)
+  id        Int      @id @default(autoincrement())
+  action    String   @db.VarChar(255)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  completed Boolean  @default(false)
 
-  todo          Todo      @relation(fields: [todoId], references: [id], onDelete: Cascade)
-  todoId        Int
+  todo   Todo @relation(fields: [todoId], references: [id], onDelete: Cascade)
+  todoId Int
 }
 
 // create different type of values
@@ -80,18 +83,18 @@ enum ListType {
 }
 
 model Account {
-  id                 String  @id @default(cuid())
-  userId             String
-  type               String
-  provider           String
-  providerAccountId  String
-  refresh_token      String?  @db.Text
-  access_token       String?  @db.Text
-  expires_at         Int?
-  token_type         String?
-  scope              String?
-  id_token           String?  @db.Text
-  session_state      String?
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
