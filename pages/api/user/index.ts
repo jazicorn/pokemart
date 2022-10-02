@@ -8,11 +8,26 @@ export default async function getUser(
     res: NextApiResponse
 ) {
     const { body } = req;
+
+    // Exclude keys from user
+    function exclude<User, Key extends keyof User>(
+        user: User,
+        ...keys: Key[]
+    ): Omit<User, Key> {
+        for (let key of keys) {
+            delete user[key];
+        }
+        return user;
+    }
     const user = await prisma.user.findUnique({
         where: {
             email: body.email,
         },
+        include: {
+            profile: true,
+        },
     });
+    const userWithoutRole = exclude(user, 'Role');
 
     const session = await getSession({ req });
 
@@ -23,7 +38,7 @@ export default async function getUser(
     switch (req.method) {
         case 'GET':
             if (user) {
-                res.status(200).json(user);
+                res.status(200).json(userWithoutRole);
             }
             return;
         case 'UPDATE':
@@ -59,6 +74,8 @@ export default async function getUser(
                     },
                 });
                 res.status(200).json({ message: `${body.email} is updated` });
+            } else if (body.role) {
+                res.status(403);
             } else {
                 res.status(400).send({ message: 'Data Not Found' });
             }
