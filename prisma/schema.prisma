@@ -35,17 +35,17 @@ enum Role {
 
 model Profile {
   id            String    @unique @id @default(cuid())
-  name_first    String    @map("firstname")
-  name_last     String    @map("lastname")
+  name_first    String?   @map("firstname")
+  name_last     String?   @map("lastname")
   image         String?
-  bio           String    @db.VarChar(555)
+  bio           String?   @db.VarChar(555)
   handles       String[]  @db.VarChar(555)
-  complete      Boolean   @default(false)
+  complete      Boolean?  @default(false)
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
 
-  user          User?     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  userId        String?   @unique
+  user          User     @relation(fields: [userId], references: [id])
+  userId        String   @unique
 }
 
 
