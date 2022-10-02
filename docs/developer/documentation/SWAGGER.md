@@ -1,6 +1,8 @@
 # [SWAGGER](https://swagger.io/)
 > API Documentation & Development
 
+- **Swagger Page: [./pages/_doc.tsx](../../../pages/_doc.tsx)**
+
 ## About
 Swagger is a powerful yet easy-to-use suite of API developer tools for teams and individuals, enabling development across the entire API lifecycle, from design and documentation, to test and deployment.
 
