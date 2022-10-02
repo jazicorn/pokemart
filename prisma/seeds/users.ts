@@ -1,6 +1,7 @@
 /* eslint-disable prettier/prettier */
 import { PrismaClient, User } from '@prisma/client';
 import { faker } from '@faker-js/faker';
+import createProfiles from './profiles';
 
 const prisma = new PrismaClient();
 
@@ -32,8 +33,9 @@ const createUsers = async () => {
                 '1234',
             ];
 
+            let userID = ids[i];
             const user: User = {
-                id: ids[i],
+                id: userID,
                 name: faker.datatype.string(10),
                 password: faker.internet.password(55),
                 email: faker.internet.email(firstName, lastName),
@@ -61,7 +63,18 @@ const createUsers = async () => {
         console.error(e);
         process.exit(1);
     } finally {
+        console.log();
         console.log('✅ Success! | Seed | CreateUsers');
+    }
+    try {
+        // error: code: 'P2003' if script attempts to create profiles before users
+        createProfiles();
+    } catch (e) {
+        // stop operations if error
+        console.error(e);
+        process.exit(1);
+    } finally {
+        console.log('✅ Success! | Seed | CreateProfiles');
     }
 };
 
