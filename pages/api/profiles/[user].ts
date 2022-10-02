@@ -1,5 +1,4 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { Profile } from '../../../lib/interfaces/schema';
 import prisma from '../../../lib/prisma';
 
 // GET api/profiles/[user]
@@ -15,18 +14,18 @@ export default async function handler(
     }
 
     // select id from request
-    const userName = req.query.name;
+    const { user } = req.query;
 
-    if (typeof userName === 'string') {
+    if (Array.isArray(user)) {
+        res.status(404).send({ message: `Not Found.` });
+    } else {
         // select user profile
-        const getProfile: Profile = await prisma.profile.findUnique({
+        const getProfile = await prisma.profile.findUnique({
             where: {
-                userId: userName,
+                userName: user,
             },
         });
         // return user profile
         res.status(200).json(getProfile);
     }
-
-    res.status(404).send({ message: `Not Found.` });
 }
