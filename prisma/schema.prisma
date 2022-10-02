@@ -35,6 +35,7 @@ enum Role {
   ADMIN
 }
 
+// removed unique constraints from userId and userName, caused error during seeding
 model Profile {
   id           String   @id @unique @default(cuid())
   name_first   String?  @map("firstname")
@@ -46,9 +47,9 @@ model Profile {
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
 
-  user        User   @relation(fields: [userId, userName], references: [id, name] )
-  userId      String @unique
-  userName    String   @unique @db.VarChar(35)
+  user        User      @relation(fields: [userId, userName], references: [id, name] )
+  userId      String
+  userName    String    @db.VarChar(35)
   @@unique([userId, userName])
 }
 
