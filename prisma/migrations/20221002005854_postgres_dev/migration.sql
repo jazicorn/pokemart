@@ -14,66 +14,36 @@ CREATE TABLE "User" (
     "emailVerified" TIMESTAMP(3),
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
-    "role" "Role" NOT NULL DEFAULT E'USER',
+    "role" "Role" NOT NULL DEFAULT 'USER',
 
     CONSTRAINT "User_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
-CREATE TABLE "Status" (
-    "id" TEXT NOT NULL,
-    "firstAttempt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "lastAttempt" TIMESTAMP(3) NOT NULL,
-    "userId" TEXT NOT NULL,
-
-    CONSTRAINT "Status_pkey" PRIMARY KEY ("id")
-);
-
--- CreateTable
-CREATE TABLE "Attempts" (
-    "id" TEXT NOT NULL,
-    "firstAttempt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "lastAttempt" TIMESTAMP(3) NOT NULL,
-    "total" INTEGER NOT NULL DEFAULT 0,
-    "blocked" BOOLEAN NOT NULL DEFAULT false,
-    "blockedAt" TIMESTAMP(3) NOT NULL,
-    "statusId" TEXT NOT NULL,
-
-    CONSTRAINT "Attempts_pkey" PRIMARY KEY ("id")
-);
-
--- CreateTable
-CREATE TABLE "Attempt" (
-    "id" SERIAL NOT NULL,
-    "pass" BOOLEAN NOT NULL,
-    "attemptAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "attemptsId" TEXT NOT NULL,
-
-    CONSTRAINT "Attempt_pkey" PRIMARY KEY ("id")
-);
-
--- CreateTable
 CREATE TABLE "Profile" (
-    "firstname" TEXT NOT NULL,
-    "lastname" TEXT NOT NULL,
+    "id" TEXT NOT NULL,
+    "firstname" TEXT,
+    "lastname" TEXT,
     "image" TEXT,
-    "bio" VARCHAR(555) NOT NULL,
+    "bio" VARCHAR(555),
     "handles" VARCHAR(555)[],
-    "userId" TEXT NOT NULL,
-    "complete" BOOLEAN NOT NULL DEFAULT false,
+    "complete" BOOLEAN DEFAULT false,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "updatedAt" TIMESTAMP(3) NOT NULL
+    "updatedAt" TIMESTAMP(3) NOT NULL,
+    "userId" TEXT NOT NULL,
+
+    CONSTRAINT "Profile_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
 CREATE TABLE "Todo" (
     "id" SERIAL NOT NULL,
     "title" VARCHAR(55) NOT NULL,
-    "userId" TEXT NOT NULL,
     "completed" BOOLEAN NOT NULL DEFAULT false,
-    "listType" "ListType" NOT NULL DEFAULT E'TODOLIST',
+    "listType" "ListType" NOT NULL DEFAULT 'TODOLIST',
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
+    "userId" TEXT NOT NULL,
 
     CONSTRAINT "Todo_pkey" PRIMARY KEY ("id")
 );
@@ -126,13 +96,16 @@ CREATE TABLE "VerificationToken" (
 );
 
 -- CreateIndex
+CREATE UNIQUE INDEX "User_id_key" ON "User"("id");
+
+-- CreateIndex
 CREATE UNIQUE INDEX "User_name_key" ON "User"("name");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "Status_userId_key" ON "Status"("userId");
+CREATE UNIQUE INDEX "Profile_id_key" ON "Profile"("id");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Profile_userId_key" ON "Profile"("userId");
@@ -150,16 +123,7 @@ CREATE UNIQUE INDEX "VerificationToken_token_key" ON "VerificationToken"("token"
 CREATE UNIQUE INDEX "VerificationToken_identifier_token_key" ON "VerificationToken"("identifier", "token");
 
 -- AddForeignKey
-ALTER TABLE "Status" ADD CONSTRAINT "Status_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
-
--- AddForeignKey
-ALTER TABLE "Attempts" ADD CONSTRAINT "Attempts_statusId_fkey" FOREIGN KEY ("statusId") REFERENCES "Status"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
-
--- AddForeignKey
-ALTER TABLE "Attempt" ADD CONSTRAINT "Attempt_attemptsId_fkey" FOREIGN KEY ("attemptsId") REFERENCES "Attempts"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
-
--- AddForeignKey
-ALTER TABLE "Profile" ADD CONSTRAINT "Profile_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "Profile" ADD CONSTRAINT "Profile_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "Todo" ADD CONSTRAINT "Todo_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
