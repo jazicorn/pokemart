@@ -185,6 +185,8 @@ export default NextAuth({
     // Callbacks are asynchronous functions you can use to control what happens
     // when an action is performed.
     // https://next-auth.js.org/configuration/callbacks
+    // how add data to session object? |  https://github.com/nextauthjs/next-auth/discussions/536
+    // session: By default, only a subset (email, name, image) of token is returned for increased security
     callbacks: {
         // async signIn(user, account, profile) { return true },
         // async redirect(url, baseUrl) { return baseUrl },
