@@ -41,7 +41,7 @@ export default async function getUser(
                 res.status(200).json(userWithoutRole);
             }
             return;
-        case 'UPDATE':
+        case 'PUT':
             if (body.name) {
                 await prisma.user.update({
                     where: {
