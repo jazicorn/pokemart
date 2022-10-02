@@ -21,10 +21,10 @@ export interface User {
 
 export interface Profile {
     id?: string;
-    name_first?: string;
-    name_last?: string;
+    name_first?: string | null;
+    name_last?: string | null;
     image?: string | null;
-    bio?: string;
+    bio?: string | null;
     handles?: Array<string>;
     complete?: boolean;
     createdAt?: Date | string;
