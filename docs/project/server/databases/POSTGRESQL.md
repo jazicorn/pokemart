@@ -52,10 +52,7 @@ psql
 brew uninstall postgres@14
 ```
 
-**Latest Migration:**
-- migrations/20220914205013_postgres_dev
-
-
+**TODO: add main postgres shell commands**
 ### PgAdmin4
 
 #### Installation
