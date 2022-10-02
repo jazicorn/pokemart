@@ -44,8 +44,8 @@ brew uninstall postgres@14
 
 🚶 &nbsp;*Database Migration*
 ```bash
-# package command | "migrate:postgres:dev": "dotenv -e lib/env/.env.development.local -- npx prisma migrate dev --name postgres-dev",
-yarn migrate:postgres:dev
+# package command | "dev:migrate:postgres": "dotenv -e lib/env/.env.development.local -- npx prisma migrate dev --name postgres-dev",
+yarn dev:migrate:postgres
 ```
 #### Database Seeding
 🌱 &nbsp;*Seed Database*
