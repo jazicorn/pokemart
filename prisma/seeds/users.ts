@@ -32,11 +32,24 @@ const createUsers = async () => {
                 '9999',
                 '1234',
             ];
+            const names = [
+                'swagify89',
+                'jaysunglivs',
+                '86khronickle',
+                'laffyjees',
+                'kaiquonkap',
+                'buggieboo',
+                'kra946',
+                'angelpiefu',
+                '9kdlkd',
+                'beetlebus',
+            ];
 
             let userID = ids[i];
+            let user_Name = names[i];
             const user: User = {
                 id: userID,
-                name: faker.datatype.string(10),
+                name: user_Name,
                 password: faker.internet.password(55),
                 email: faker.internet.email(firstName, lastName),
                 emailConfirm: false,

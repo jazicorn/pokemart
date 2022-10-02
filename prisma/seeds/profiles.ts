@@ -20,9 +20,22 @@ const createProfiles = async () => {
             '9999',
             '1234',
         ];
+        const names = [
+            'swagify89',
+            'jaysunglivs',
+            '86khronickle',
+            'laffyjees',
+            'kaiquonkap',
+            'buggieboo',
+            'kra946',
+            'angelpiefu',
+            '9kdlkd',
+            'beetlebus',
+        ];
 
         for (let i = 0; i < ids.length; i++) {
             let user = ids[i];
+            let user_Name = names[i];
             const profile: Profile = {
                 id: faker.datatype.uuid(),
                 name_first: null,
@@ -34,6 +47,7 @@ const createProfiles = async () => {
                 createdAt: faker.date.past(),
                 updatedAt: faker.date.recent(),
                 userId: user,
+                userName: user_Name,
             };
 
             // push each user to Profile[]
