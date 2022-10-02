@@ -13,7 +13,18 @@ export default async function handler(
         });
     }
 
-    const profiles = await prisma.profile.findMany();
+    // TODO | select return only the values you want public users to see
+    const profiles = await prisma.profile.findMany({
+        select: {
+            name_first: true,
+            name_last: true,
+            image: true,
+            bio: true,
+            handles: true,
+            createdAt: true,
+            userName: true,
+        },
+    });
 
     res.status(200).json(profiles);
 }
