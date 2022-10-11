@@ -16,16 +16,16 @@ export default async function handler(
     // select id from request
     const { user } = req.query;
 
-    if (Array.isArray(user)) {
-        res.status(404).send({ message: `Not Found.` });
-    } else {
-        // select user profile
-        const getProfile = await prisma.profile.findUnique({
-            where: {
-                userName: user,
-            },
-        });
-        // return user profile
-        res.status(200).json(getProfile);
-    }
+    const profileUser = user.toString();
+    console.log(profileUser);
+
+    // select user profile
+    const getProfile = await prisma.profile.findUnique({
+        where: {
+            userName: profileUser,
+        },
+    });
+    // return user profile
+    res.status(200).json(getProfile);
+    console.log(getProfile);
 }
