@@ -1,12 +1,14 @@
-import type { GetServerSideProps, NextPage } from 'next';
+import type { GetServerSideProps } from 'next';
 import { InferGetServerSidePropsType } from 'next';
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
     const { params } = context;
     const { user } = params;
+    console.log(user);
     const res = await fetch(
-        `${process.env.API_ROUTES_URL}/api/profile/${user}`
+        `${process.env.API_ROUTES_URL}/api/profiles/${user}`
     );
+    console.log(res);
     // example: http://localhost:3000/api/profiles/swagify89
     const profile = await res.json();
 
@@ -18,7 +20,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 };
 
 // This page returns user profile
-const Profile: NextPage = ({
+const Profile = ({
     profile,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
     console.log(profile);
@@ -27,8 +29,7 @@ const Profile: NextPage = ({
     }
     return (
         <div>
-            <h1>Profile</h1>
-            <h1>{profile.getName}</h1>
+            <h1>Welcome! {profile.userName}</h1>
         </div>
     );
 };
