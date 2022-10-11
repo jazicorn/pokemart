@@ -1,5 +1,5 @@
 import type { NextPage } from 'next';
-import InferNextPropsType from '../../../lib/types/props';
+import InferNextPropsType from '../../lib/types/props';
 
 export const getServerSideProps = async (context) => {
     const { user } = context;
