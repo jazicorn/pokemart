@@ -5,9 +5,13 @@
 
 - **Next.js | API**
   - [ ] User Registration *Next-Auth Setup*
-  - [X] User Profile | Public
-  - [ ] User Profile | Private
-  - [ ] User Setting | Private *(Only)*
+  - [X] User Profile | Public | Method: GET
+  - [ ] User Profile | Private | Method: GET
+  - [ ] User Profile | Private | Method: PUT
+  - [ ] User Profile | Private | Method: POST
+  - [ ] User Profile | Public or Private? PUT
+  - [ ] User Setting | Private *(Only)* | GET;PUT
+  
 
 - **Next.js | Pages**
   - [ ] User Registration
