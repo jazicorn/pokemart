@@ -17,7 +17,7 @@
     * *[Packaging](project/_common/packaging/_index.md)*
     * *[Github](project/_common/github/_index.md)*
     * *[Husky](project/_common/HUSKY.md)*
-  * [Client](project/client/_index.md)*
+  * [Client](project/client/_index.md)
     * *[Frameworks](project/client/frameworks/_index.md)*
     * *[Languages](project/client/languages/_index.md)*
     * *[Libraries](project/client/libraries/_index.md)*
