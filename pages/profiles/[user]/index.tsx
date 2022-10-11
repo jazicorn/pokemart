@@ -1,13 +1,18 @@
-import type { InferGetServerSidePropsType, NextPage } from 'next';
+import type { GetServerSideProps, NextPage } from 'next';
+import { InferGetServerSidePropsType } from 'next';
 
-export const getServerSideProps = async (context) => {
-    const { user } = context.params;
-    const url = process.env.NEXTAUTH_URL;
-    const res = await fetch(`${url}/api/profile/${user}`);
+export const getServerSideProps: GetServerSideProps = async (context) => {
+    const { params } = context;
+    const { user } = params;
+    const res = await fetch(
+        `${process.env.API_ROUTES_URL}/api/profile/${user}`
+    );
+    // example: http://localhost:3000/api/profiles/swagify89
+    const profile = await res.json();
 
     return {
         props: {
-            profile: await res.json(),
+            profile,
         },
     };
 };
