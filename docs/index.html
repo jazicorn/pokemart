@@ -12,6 +12,10 @@
   <div id="app"></div>
   <script>
     window.$docsify = {
+        timeUpdater: {
+            text: "<div align='left' width='200px' style='color:gray;font-size:16px'>Posted @ {docsify-updated}</div>",
+            formatUpdated: "{YYYY}-{MM}-{DD} {HH}:{mm}",
+        },
       name: 'Template-Nextjs-Full',
       repo: 'https://github.com/jazicorn/template-nextjs-full-user',
       themeColor: '#457B9D',
@@ -72,5 +76,7 @@
         navigator.serviceWorker.register('sw.js')
       }
     </script>
+    <!-- Timer Update -->
+    <script src="https://cdn.jsdelivr.net/npm/docsify-updated/src/time-updater.min.js"></script>
 </body>
 </html>
