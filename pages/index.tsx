@@ -4,11 +4,8 @@ import Head from 'next/head';
 const Home: NextPage = () => (
     <div>
         <Head>
-            <title>JS-Dailies</title>
-            <meta
-                name="description"
-                content="Practice your javascript skills daily"
-            />
+            <title>Project</title>
+            <meta name="description" content="...about" />
         </Head>
 
         <main>
