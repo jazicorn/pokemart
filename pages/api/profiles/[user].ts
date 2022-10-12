@@ -13,19 +13,40 @@ export default async function handler(
         });
     }
 
-    // select id from request
-    const { user } = req.query;
+    // Exclude keys from profile:
+    // https://www.prisma.io/docs/concepts/components/prisma-client/excluding-fields
+    function exclude<Profile, Key extends keyof Profile>(
+        profile: Profile,
+        ...keys: Key[]
+    ): Omit<Profile, Key> {
+        for (let key of keys) {
+            delete profile[key];
+        }
+        return profile;
+    }
 
-    const profileUser = user.toString();
-    console.log(profileUser);
+    // find user
+    try {
+        // select id from request
+        const { user } = req.query;
 
-    // select user profile
-    const getProfile = await prisma.profile.findUnique({
-        where: {
-            userName: profileUser,
-        },
-    });
-    // return user profile
-    res.status(200).json(getProfile);
-    console.log(getProfile);
+        // convert user query to string format
+        const profileUser = user.toString();
+
+        // select user profile
+        const getProfile = await prisma.profile.findUnique({
+            where: {
+                userName: profileUser,
+            },
+        });
+
+        // Filter profile fields from http response
+        const profileFiltered = exclude(getProfile, 'id', 'updatedAt');
+        // return user profile
+        if (profileFiltered) {
+            res.status(200).json(profileFiltered);
+        }
+    } catch (e) {
+        res.status(404).send({ message: 'User Error' });
+    }
 }
