@@ -14,8 +14,16 @@
   - [X] Create catch all error for incorrect/invalid api endpoints
 
 - **Next.js | Pages**
-  - [X] User Registration
-  - [ ] User Profile
+  - [-] User Sign-up
+    - [X] Page Created
+    - [ ] CSS
+  - [-] User Registration
+    - [X] Page Created
+    - [ ] CSS
+  - [-] User Profile
+    - [X] Page Created
+    - [ ] CSS
+    - [ ] User Data
   - [ ] User Setting
 
 - **CSS**
@@ -26,7 +34,8 @@
 ### Database
 
 - **Prisma Seeding**
-  - [X] Create User Profiles
+  - [X] Create User 
+  - [-] User Accounts Profiles
 
 ### Testing
 
