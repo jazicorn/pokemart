@@ -11,7 +11,7 @@
   - [ ] User Profile | Private | Method: POST
   - [ ] User Profile | Role? | Public or Private? PUT
   - [ ] User Setting | Private *(Only)* | GET;PUT
-  
+  - [X] Create catch all error for incorrect/invalid api endpoints
 
 - **Next.js | Pages**
   - [X] User Registration
