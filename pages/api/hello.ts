@@ -1,3 +1,5 @@
+/** Example of API endpoint */
+
 import { NextApiRequest, NextApiResponse } from 'next';
 
 /**
