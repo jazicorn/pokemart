@@ -25,11 +25,29 @@ export interface Profile {
     name_last?: string | null;
     image?: string | null;
     bio?: string | null;
-    handles?: Array<string>;
+    handles?: Array<Handle>;
     complete?: boolean;
     createdAt?: Date | string;
     updatedAt: Date | string;
     userName?: string | null;
+}
+
+export enum Social {
+    GOOGLE = 'GOOGLE',
+    GITHUB = 'GITHUB',
+    TWITTER = 'TWITTER',
+    FACEBOOK = 'FACEBOOK',
+}
+
+export interface Handle {
+    id?: string | null;
+    social: Social;
+    userName?: string | null;
+    link?: string | null;
+    public?: boolean;
+    createdAt?: Date | string;
+    updatedAt: Date | string;
+    profileId?: string | null;
 }
 
 export enum ListType {
