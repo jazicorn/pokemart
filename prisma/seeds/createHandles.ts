@@ -5,9 +5,10 @@ import { userNames, totalUsers } from './createUsers';
 
 export const getHandleIds = () => {
     let ids = [];
+    let random = faker.random.numeric(10);
+    let randomNum = parseInt(random);
     for (let i = 0; i < 10; i++) {
-        let random = faker.random.numeric(10) + i;
-        let id = parseInt(random);
+        let id = Math.abs(randomNum + 1);
         ids.push(id);
     }
     return ids;
@@ -20,6 +21,12 @@ export const handleIds = getHandleIds();
 let handles: Handle[] = [];
 
 export default function createHandles() {
+    function ifPublic(param: number) {
+        if (param / 2) {
+            return true;
+        }
+        return false;
+    }
     try {
         // // delete all handles in database | important for reseeding database from scratch;
         // deletehandles();
@@ -29,12 +36,13 @@ export default function createHandles() {
         let getProfileId = profileIds;
 
         for (let i = 0; i < totalUsers; i++) {
+            const setProfile = ifPublic(i);
             let handle: Handle = {
                 id: getHandleId[i],
                 social: 'TWITTER',
                 userName: getName[i],
                 link: faker.internet.url(),
-                public: false,
+                public: setProfile,
                 createdAt: faker.date.past(),
                 updatedAt: faker.date.recent(),
                 profileId: getProfileId[i],
