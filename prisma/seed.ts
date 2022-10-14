@@ -1,11 +1,47 @@
 import { PrismaClient } from '@prisma/client';
-import createUsers from './seeds/users';
+import createHandles from './seeds/createHandles';
+import createProfiles from './seeds/createProfiles';
+import createUsers from './seeds/createUsers';
 
 const prisma = new PrismaClient();
 
+// create users
+const users = createUsers();
+// create profiles
+const profiles = createProfiles();
+// create handles
+const handles = createHandles();
+
+// new users created
+const seedUsers = async () => {
+    await prisma.user.createMany({
+        data: users,
+    });
+};
+
+// new user profiles with Social Handls created
+const seedProfiles = async () => {
+    await prisma.profile.createMany({
+        data: profiles,
+    });
+    await prisma.handle.createMany({
+        data: handles,
+    });
+};
+
 const load = async () => {
     try {
-        createUsers();
+        // call seed functions
+        seedUsers();
+        console.log('🎉 Success! | 🌱 Seed | 🧑 SeedUsers');
+    } catch (e) {
+        console.error(e);
+        process.exit(1);
+    }
+    try {
+        seedProfiles();
+        console.log('🎉 Success! | 🌱 Seed | 📋 SeedProfiles');
+        console.log('🎉 Success! | 🌱 Seed | 🐦 SeedHandles');
     } catch (e) {
         console.error(e);
         process.exit(1);
@@ -13,4 +49,7 @@ const load = async () => {
         await prisma.$disconnect();
     }
 };
-load();
+
+load().catch((e) => {
+    console.log(e);
+});
