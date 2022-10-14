@@ -12,14 +12,14 @@ const profiles = createProfiles();
 // create handles
 const handles = createHandles();
 
-// new users created
+// new Users created
 const seedUsers = async () => {
     await prisma.user.createMany({
         data: users,
     });
 };
 
-// new user profiles with Social Handls created
+// new user Profiles with Social Handles created
 const seedProfiles = async () => {
     await prisma.profile.createMany({
         data: profiles,
