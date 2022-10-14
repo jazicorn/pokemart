@@ -13,7 +13,7 @@ datasource db {
 }
 
 model User {
-  id            String    @id @unique @default(cuid())
+  id            String    @id @unique @default(uuid())
   name          String    @unique @db.VarChar(35)
   password      String    @db.VarChar(55)
   email         String    @unique @db.VarChar(55)
@@ -37,20 +37,42 @@ enum Role {
 
 // removed unique constraints from userId and userName, caused error during seeding
 model Profile {
-  id           String   @id @unique @default(cuid())
-  name_first   String?  @map("firstname")
-  name_last    String?  @map("lastname")
-  image        String?
-  bio          String?  @db.VarChar(555)
-  handles      String[] @db.VarChar(555)
-  complete     Boolean? @default(false)
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
+  id         String   @id @unique @default(uuid())
+  name_first String?  @map("firstname")
+  name_last  String?  @map("lastname")
+  image      String?
+  bio        String?  @db.VarChar(555)
+  handles    Handle[]
+  complete   Boolean? @default(false)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  public     Boolean  @default(false)
 
-  user        User      @relation(fields: [userId, userName], references: [id, name] )
-  userId      String 
-  userName    String    @unique @db.VarChar(35)
+  user     User   @relation(fields: [userId, userName], references: [id, name], onDelete: Cascade)
+  userId   String
+  userName String @unique @db.VarChar(35)
+
   @@unique([userId, userName])
+}
+
+enum Social {
+  GITHUB
+  GOOGLE
+  TWITTER
+  FACEBOOK
+}
+
+model Handle {
+  id        Int      @id @default(autoincrement())
+  social    Social
+  userName  String   @db.VarChar(55)
+  link      String   @db.VarChar(55)
+  public    Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  profile   Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  profileId String
 }
 
 model Todo {
@@ -84,7 +106,7 @@ enum ListType {
 }
 
 model Account {
-  id                String  @id @default(cuid())
+  id                String  @id @default(uuid())
   userId            String
   type              String
   provider          String
@@ -103,7 +125,7 @@ model Account {
 }
 
 model Session {
-  id           String   @id @default(cuid())
+  id           String   @id @default(uuid())
   sessionToken String   @unique
   userId       String
   expires      DateTime
