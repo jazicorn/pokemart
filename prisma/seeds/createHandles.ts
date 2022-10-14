@@ -7,8 +7,9 @@ export const getHandleIds = () => {
     let ids = [];
     let random = faker.random.numeric(10);
     let randomNum = parseInt(random);
+
     for (let i = 0; i < 10; i++) {
-        let id = Math.abs(randomNum + 1);
+        let id = Math.abs(randomNum + i);
         ids.push(id);
     }
     return ids;
@@ -23,15 +24,13 @@ let handles: Handle[] = [];
 export default function createHandles() {
     function ifPublic(param: number) {
         if (param / 2) {
-            return true;
+            return false;
         }
-        return false;
+        return true;
     }
     try {
-        // // delete all handles in database | important for reseeding database from scratch;
-        // deletehandles();
-
         let getHandleId = handleIds;
+
         let getName = userNames;
         let getProfileId = profileIds;
 
