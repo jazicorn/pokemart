@@ -2,6 +2,9 @@
 CREATE TYPE "Role" AS ENUM ('USER', 'ADMIN');
 
 -- CreateEnum
+CREATE TYPE "Social" AS ENUM ('GITHUB', 'GOOGLE', 'TWITTER', 'FACEBOOK');
+
+-- CreateEnum
 CREATE TYPE "ListType" AS ENUM ('TODOLIST', 'TODOLISTPLUS');
 
 -- CreateTable
@@ -26,14 +29,28 @@ CREATE TABLE "Profile" (
     "lastname" TEXT,
     "image" TEXT,
     "bio" VARCHAR(555),
-    "handles" VARCHAR(555)[],
     "complete" BOOLEAN DEFAULT false,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
+    "public" BOOLEAN NOT NULL DEFAULT false,
     "userId" TEXT NOT NULL,
     "userName" VARCHAR(35) NOT NULL,
 
     CONSTRAINT "Profile_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "Handle" (
+    "id" SERIAL NOT NULL,
+    "social" "Social" NOT NULL,
+    "userName" VARCHAR(55) NOT NULL,
+    "link" VARCHAR(55) NOT NULL,
+    "public" BOOLEAN NOT NULL DEFAULT false,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL,
+    "profileId" TEXT NOT NULL,
+
+    CONSTRAINT "Handle_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
@@ -112,6 +129,9 @@ CREATE UNIQUE INDEX "User_id_name_key" ON "User"("id", "name");
 CREATE UNIQUE INDEX "Profile_id_key" ON "Profile"("id");
 
 -- CreateIndex
+CREATE UNIQUE INDEX "Profile_userName_key" ON "Profile"("userName");
+
+-- CreateIndex
 CREATE UNIQUE INDEX "Profile_userId_userName_key" ON "Profile"("userId", "userName");
 
 -- CreateIndex
@@ -127,7 +147,10 @@ CREATE UNIQUE INDEX "VerificationToken_token_key" ON "VerificationToken"("token"
 CREATE UNIQUE INDEX "VerificationToken_identifier_token_key" ON "VerificationToken"("identifier", "token");
 
 -- AddForeignKey
-ALTER TABLE "Profile" ADD CONSTRAINT "Profile_userId_userName_fkey" FOREIGN KEY ("userId", "userName") REFERENCES "User"("id", "name") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Profile" ADD CONSTRAINT "Profile_userId_userName_fkey" FOREIGN KEY ("userId", "userName") REFERENCES "User"("id", "name") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "Handle" ADD CONSTRAINT "Handle_profileId_fkey" FOREIGN KEY ("profileId") REFERENCES "Profile"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "Todo" ADD CONSTRAINT "Todo_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
