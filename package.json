@@ -75,6 +75,8 @@
     "@fortawesome/free-regular-svg-icons": "^6.1.1",
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "@fortawesome/react-fontawesome": "latest",
+    "@headlessui/react": "^1.7.3",
+    "@heroicons/react": "^2.0.12",
     "@joi/date": "^2.1.0",
     "@logtail/node": "^0.1.10",
     "@logtail/winston": "^0.1.10",
