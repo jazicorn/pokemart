@@ -9,6 +9,7 @@
 - [Example Projects: Github](https://github.com/prisma/prisma-examples)
 - [Prisma: Getting Started](https://www.prisma.io/docs/getting-started)
 - [Prisma: Data Guide](https://www.prisma.io/dataguide/)
+- [Prisma: Studio](https://www.prisma.io/studio)
 
 ---
 
@@ -23,6 +24,7 @@
 - [Prisma Client: Filtering and Sorting](https://www.prisma.io/docs/concepts/components/prisma-client/filtering-and-sorting)
 - [Prisma Migrate](https://www.prisma.io/docs/concepts/components/prisma-migrate)
 - [Prisma Studio](https://www.prisma.io/docs/concepts/components/prisma-studio)
+- [Prisma Studio: Github](https://github.com/prisma/studio)
 - [Prisma Validator](https://www.prisma.io/docs/concepts/components/prisma-client/advanced-type-safety/prisma-validator)
 - [Logging](https://www.prisma.io/docs/concepts/components/prisma-client/middleware/logging-middleware)
 - [Session Data](https://www.prisma.io/docs/concepts/components/prisma-client/middleware/session-data-middleware)
@@ -88,13 +90,23 @@ prisma migrate reset
 yarn dev:generate
 ```
 
-**💡 when .env file not in rootdirectory:**
+**💡 when .env file not in root directory:**
 ```bash 
 # Use dotenv to designate env file and/or location
 yarn dotenv -e lib/env/.env.development.local prisma db seed  
 ```
 
 - [Prisma Migrate & Seeding](https://www.prisma.io/docs/guides/database/seed-database#integrated-seeding-with-prisma-migrate)
+
+### Prisma Studio
+```bash
+# run this command to view database data in dev enviroment
+yarn dev:studio
+```
+```bash
+# flag hostname for port other than 5555 | currently flag not working
+yarn dev:studio --hostname
+```
 
 ---
 
@@ -110,7 +122,7 @@ yarn dotenv -e lib/env/.env.development.local prisma db seed
 
 >@prisma/faker solves this by generating seed data based on your Prisma schema, as your application evolves, the generated data also evolves deterministically.
 
-- [prsiam-faker](https://github.com/maticzav/prisma-faker)
+- [prisma-faker](https://github.com/maticzav/prisma-faker)
 
 ---
 
