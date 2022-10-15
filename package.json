@@ -9,6 +9,7 @@
     "dev:migrate:status": "dotenv -e lib/env/.env.development.local -- npx prisma migrate status",
     "dev:migrate:reset": "dotenv -e lib/env/.env.development.local -- npx prisma migrate reset --force --skip-seed",
     "dev:migrate:reset:seed": "dotenv -e lib/env/.env.development.local -- npx prisma migrate reset --force",
+    "dev:studio": "dotenv -e lib/env/.env.development.local -- npx prisma studio",
     "dev:seed": "dotenv -e lib/env/.env.development.local prisma db seed",
     "dev": "dotenv -e lib/env/.env.development.local next dev",
     "test:env": "dotenv -e lib/env/.env.test.local",
