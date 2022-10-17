@@ -2,6 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
+/**Font Source: https://github.com/iaolo/iA-Fonts/blob/master/iA%20Writer%20Mono/Webfonts/iAWriterMonoS-Regular.woff */
+@font-face {
+  font-family: 'iAWriterMonoS-Regular';
+  src: url(iAWriterMonoS-Regular.woff) format('woff');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'iAWriterMonoS-Regular';
+  src: url(iAWriterMonoS-Italic.woff) format('woff');
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'iAWriterMonoS-Bold';
+  src: url(iAWriterMonoS-Bold.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'iAWriterMonoS-BoldItalic';
+  src: url(iAWriterMonoS-BoldItalic.woff) format('woff');
+  font-style: italic;
+}
+
 :root {
   /* Your default theme */
   --background: white;
@@ -17,15 +41,9 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'iAWriterMonoS-Regular';
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
+h1 {
+  font-family: 'iAWriterMonoS-Bold';
 }
