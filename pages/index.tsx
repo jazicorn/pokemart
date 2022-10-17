@@ -1,16 +1,15 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import Welcome from '../components/site/Welcome';
 
 const Home: NextPage = () => (
-    <div>
+    <div className="grow flex flex-col bg-teal-200">
         <Head>
             <title>Project</title>
             <meta name="description" content="...about" />
         </Head>
 
-        <main>
-            <h1>Hello World</h1>
-        </main>
+        <Welcome />
     </div>
 );
 
