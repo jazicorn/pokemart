@@ -10,9 +10,9 @@
 }
 
 @font-face {
-  font-family: 'iAWriterMonoS-Regular';
+  font-family: 'iAWriterMonoS-Italic';
   src: url(iAWriterMonoS-Italic.woff) format('woff');
-  font-style: italic;
+  font-style: normal;
 }
 
 @font-face {
