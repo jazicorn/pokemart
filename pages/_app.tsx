@@ -3,7 +3,6 @@ import type { AppProps } from 'next/app';
 import { SessionProvider } from 'next-auth/react';
 import { ThemeProvider } from 'next-themes';
 import Layout from '../components/Layout';
-import Head from 'next/head';
 
 // head link adds google icons to all pages | maybe? https://nextjs.org/docs/basic-features/font-optimization needed?
 // Use the <SessionProvider> to improve performance and allow components that call
@@ -15,12 +14,6 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         <SessionProvider session={pageProps.session}>
             <ThemeProvider>
                 <Layout>
-                    <Head>
-                        <link
-                            href="https://fonts.googleapis.com/icon?family=Material+Icons"
-                            rel="stylesheet"
-                        ></link>
-                    </Head>
                     <Component {...pageProps} />
                 </Layout>
             </ThemeProvider>

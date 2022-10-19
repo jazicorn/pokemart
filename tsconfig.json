@@ -23,7 +23,8 @@
     "**/*.ts",
     "**/*.tsx",
     "lib/types",
-    "lib/models/profiles"
+    "lib/models/profiles",
+    "pages/_document.tsx"
   ],
   "exclude": ["node_modules"],
   "ts-node": {
