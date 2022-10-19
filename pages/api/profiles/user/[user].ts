@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import prisma from '../../../lib/prisma';
+import prisma from '../../../../lib/prisma';
 
 // GET api/profiles/[user]
 export default async function handler(
@@ -25,9 +25,9 @@ export default async function handler(
         return profile;
     }
 
-    // find user
+    // find user by userName
     try {
-        // select id from request
+        // select user from request
         const { user } = req.query;
 
         // convert user query to string format
