@@ -45,5 +45,5 @@ or the [website](https://jazicorn.github.io/template-nextjs-full-user/).
 
 ---
 
-[MIT LICENSE](LICENSE.md)
+[MIT LICENSE](LICENSE)
 
