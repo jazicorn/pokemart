@@ -21,9 +21,9 @@ export default function Header() {
                             About
                         </a>
                     </Link>
-                    <Link href="/home/pageone">
+                    <Link href="/home/generator">
                         <a className="bg-red-300 basis-28 flex justify-center content-center items-center">
-                            Page One
+                            Generator
                         </a>
                     </Link>
                     <Link href="/home/pagetwo">

@@ -4,7 +4,7 @@ export default function Welcome() {
             <div className="basis-1/6 flex flex-row justify-center content-center bg-green-100">
                 <div className="flex flex-col justify-center content-center bg-pink-300 ">
                     <h1 className="justify-center content-center bg-purple-100">
-                        Welcome to Template-NextJS-Full
+                        Welcome to Pokemart
                     </h1>
                 </div>
             </div>
