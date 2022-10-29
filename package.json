@@ -23,8 +23,8 @@
     "postinstall": "husky install",
     "prepack": "pinst --disable",
     "postpack": "pinst --enable",
-    "docs": "docsify serve ./docs --port 3001",
-    "deploy": "gh-pages -d docs"
+    "docs:serve": "docsify serve ./docs --port 3001",
+    "docs:deploy": "gh-pages -d docs"
   },
   "prisma": {
     "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
