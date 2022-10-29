@@ -25,7 +25,7 @@ export default async function handler(
     }
 
     // 151 Pokemon Total | Generation 1 Pokedex
-    let random = getRandomInt(151);
+    let random = getRandomInt(152);
 
     const pokemon = await pokenode.getPokemonById(random);
 
