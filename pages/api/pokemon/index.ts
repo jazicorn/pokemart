@@ -142,6 +142,8 @@ export default async function handler(
 
     /***RESPONSE: RETURN DATA ***************************/
 
+    let dataObj = data.pokemon[0];
+
     // return altered data object
-    res.status(200).json(data);
+    res.status(200).json(dataObj);
 }
