@@ -1,5 +1,5 @@
 import type { GetStaticProps, NextPage } from 'next';
-import Generator from '../../components/site/Generator';
+import Generator from '../../components/pokemon/Generator';
 
 /**Tip: You CANNOT pass props (request data) directly from components, MUST pass props throgh NextPage */
 export const getStaticProps: GetStaticProps = async () => {
