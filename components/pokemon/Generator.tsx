@@ -37,12 +37,12 @@
  */
 
 // Generate random pokemon from pokemon api
-const Generator = (pokeObj) => {
-    let sprite = pokeObj.pokemon.sprites.front_default;
+const Generator = (data) => {
+    let sprite = data.pokemon.sprites.front_default;
     return (
         <div className="basis-1/3 bg-indigo-300 h-full flex flex-col justify-start content-center ">
             <h1 className="bg-teal-200 basis-5">Random Generator</h1>
-            <div className="bg-red-200">{pokeObj.pokemon.name}</div>
+            <div className="bg-red-200">{data.pokemon.name}</div>
             <img src={sprite}></img>
         </div>
     );
