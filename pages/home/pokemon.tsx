@@ -22,7 +22,7 @@ export const getStaticProps: GetStaticProps = async () => {
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 /**@ts-ignore */
 const Pokemon: NextPage = ({ pokeObj }) => {
-    const [data, setData] = useState({ data: [] });
+    const [data, setData] = useState(pokeObj);
     const [isLoading, setIsLoading] = useState(false);
     const [err, setErr] = useState('');
 
@@ -40,7 +40,8 @@ const Pokemon: NextPage = ({ pokeObj }) => {
 
             const result = await response.json();
 
-            console.log('result is: ', JSON.stringify(result, null, 4));
+            // console.log('result is: ', JSON.stringify(result, null, 4));
+            console.log(result);
 
             setData(result);
         } catch (err) {
@@ -49,28 +50,32 @@ const Pokemon: NextPage = ({ pokeObj }) => {
             setIsLoading(false);
         }
     };
-    console.log(data);
+
     if (isLoading) return <p>Loading...</p>;
     if (err) return <h1>Err</h1>;
     if (!data) return <p>No profile data</p>;
     return (
         <div className="grow flex flex-col justify-between items-stretch bg-slate-100">
+            {/**Panel 1 */}
             <div className="basis-1/6 flex flex-row justify-center content-center bg-green-100">
                 <div className="flex flex-col justify-center content-center bg-pink-300 ">
                     <h1 className="justify-center content-center bg-purple-100">
                         Pokemon
                     </h1>
-                    <button onClick={handleClick}>Fetch data</button>
                 </div>
             </div>
-            <div className=" basis-4/6 grow flex lg:flex-row sm:flex-col flex-wrap justify-center content-center bg-pink-100">
+            {/**Panel 2 */}
+            <div className=" basis-4/6 flex flex-row flex-wrap justify-center content-center bg-pink-100">
                 <div className="basis-1/3 bg-orange-100 w-1/3 h-full">
                     By ID
                 </div>
-                {/* pass pokeObj to Generator component */}
-                <Generator pokemon={data} />
+                <div className="basis-1/3 bg-indigo-300 h-full flex flex-col justify-start content-center">
+                    <button onClick={handleClick}>Generate Pokemon</button>
+                    <Generator pokemon={data} handleClick={handleClick} />
+                </div>
                 <div className="basis-1/3 bg-slate-300 h-full">By Name</div>
             </div>
+            {/**Panel 3 */}
             <div className="basis-1/6 bg-green-100">
                 <div></div>
             </div>
